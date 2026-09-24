@@ -1,0 +1,2295 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NP1 — Sentença e Recursos em Direito Civil | Caderno Acadêmico & Plataforma de Estudos</title>
+  <style>
+    :root {
+      --bg-dark: #0f172a;
+      --card-bg: #1e293b;
+      --card-hover: #334155;
+      --accent-blue: #3b82f6;
+      --accent-purple: #8b5cf6;
+      --accent-green: #10b981;
+      --accent-red: #ef4444;
+      --accent-amber: #f59e0b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-color: #475569;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding-bottom: 60px;
+    }
+
+    /* HEADER */
+    header {
+      background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
+      border-bottom: 1px solid #312e81;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      position: relative;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      background: linear-gradient(to right, #60a5fa, #c084fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      max-width: 950px;
+      margin: 0 auto;
+    }
+
+    .badge-alert {
+      display: inline-block;
+      background-color: rgba(16, 185, 129, 0.2);
+      color: #6ee7b7;
+      border: 1px solid #059669;
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      margin-top: 1rem;
+    }
+
+    /* NAV TABS */
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 0.4rem;
+      background-color: #111827;
+      padding: 0.75rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border-color);
+      flex-wrap: wrap;
+    }
+
+    .nav-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 0.6rem 1rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-btn:hover {
+      background-color: var(--card-hover);
+      color: var(--text-main);
+    }
+
+    .nav-btn.active {
+      background-color: var(--accent-blue);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    }
+
+    /* CONTAINER */
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* CARDS & GRID */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .card:hover {
+      border-color: var(--accent-blue);
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      color: #60a5fa;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .card-trap {
+      border-left: 4px solid var(--accent-amber);
+      background-color: rgba(245, 158, 11, 0.05);
+    }
+
+    .card-trap h3 {
+      color: #fbbf24;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 0.25rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .tag-cpc { background: rgba(59, 130, 246, 0.2); color: #93c5fd; }
+    .tag-prova { background: rgba(239, 68, 68, 0.2); color: #fca5a5; }
+
+    /* TABLES */
+    .table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 0.5rem;
+      border: 1px solid var(--border-color);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.95rem;
+    }
+
+    th, td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    th {
+      background-color: #111827;
+      color: #93c5fd;
+      font-weight: 700;
+    }
+
+    tr:nth-child(even) {
+      background-color: rgba(255, 255, 255, 0.02);
+    }
+
+    /* CADERNO ACADÊMICO STYLES */
+    .caderno-chapter {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 0.85rem;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .chapter-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      color: white;
+      font-size: 0.78rem;
+      font-weight: 800;
+      padding: 0.25rem 0.75rem;
+      border-radius: 0.25rem;
+      letter-spacing: 1px;
+      margin-bottom: 0.75rem;
+    }
+
+    .chapter-title {
+      font-size: 1.5rem;
+      color: #38bdf8;
+      font-weight: 800;
+      margin-bottom: 1.25rem;
+      border-bottom: 1px solid rgba(71, 85, 105, 0.5);
+      padding-bottom: 0.6rem;
+    }
+
+    .caderno-card {
+      margin-bottom: 1.5rem;
+    }
+
+    .caderno-card h4 {
+      color: #a7f3d0;
+      font-size: 1.15rem;
+      margin-bottom: 0.6rem;
+      font-weight: 700;
+    }
+
+    .caderno-list {
+      margin-left: 1.25rem;
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .caderno-list li {
+      margin-bottom: 0.6rem;
+      color: #e2e8f0;
+    }
+
+    /* STREAMFLIX (NETFLIX STYLE) */
+    .netflix-header {
+      margin-bottom: 1.5rem;
+    }
+
+    .netflix-header h2 {
+      font-size: 1.8rem;
+      color: #f43f5e;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .netflix-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .media-card {
+      background-color: var(--card-bg);
+      border-radius: 0.75rem;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+    }
+
+    .media-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+      border-color: #f43f5e;
+    }
+
+    .media-thumb {
+      height: 160px;
+      background: linear-gradient(135deg, #475569 0%, #1e293b 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .play-btn {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(244, 63, 94, 0.95);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.3rem;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease;
+      box-shadow: 0 4px 12px rgba(244, 63, 94, 0.4);
+    }
+
+    .media-card:hover .play-btn {
+      transform: scale(1.15);
+      background: #e11d48;
+    }
+
+    .media-body {
+      padding: 1rem;
+    }
+
+    .media-title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--text-main);
+    }
+
+    .media-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .media-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      color: #a1a1aa;
+    }
+
+    /* QUIZ SECTION */
+    .quiz-stats-bar {
+      background-color: #111827;
+      border: 1px solid var(--border-color);
+      border-radius: 0.75rem;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 1.6rem;
+      font-weight: 800;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    .progress-bar-container {
+      width: 100%;
+      height: 8px;
+      background-color: var(--border-color);
+      border-radius: 999px;
+      overflow: hidden;
+      margin-top: 0.5rem;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(to right, var(--accent-blue), var(--accent-green));
+      transition: width 0.3s ease;
+    }
+
+    .question-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 0.75rem;
+      padding: 1.6rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .question-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .question-number {
+      font-size: 0.85rem;
+      color: #60a5fa;
+      font-weight: 700;
+    }
+
+    .question-source {
+      font-size: 0.75rem;
+      background-color: rgba(148, 163, 184, 0.15);
+      color: #cbd5e1;
+      padding: 0.2rem 0.6rem;
+      border-radius: 0.25rem;
+    }
+
+    .question-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin-bottom: 0.6rem;
+    }
+
+    .question-text {
+      font-size: 1rem;
+      color: #e2e8f0;
+      margin-bottom: 1.25rem;
+      white-space: pre-line;
+    }
+
+    .options-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .option-btn {
+      background-color: #0f172a;
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 0.85rem 1rem;
+      border-radius: 0.5rem;
+      text-align: left;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .option-btn:hover:not(:disabled) {
+      background-color: var(--card-hover);
+      border-color: var(--accent-blue);
+    }
+
+    .option-letter {
+      font-weight: 800;
+      color: #60a5fa;
+      min-width: 24px;
+    }
+
+    .option-btn.correct {
+      background-color: rgba(16, 185, 129, 0.18) !important;
+      border-color: var(--accent-green) !important;
+      color: #6ee7b7 !important;
+    }
+
+    .option-btn.correct .option-letter {
+      color: #10b981 !important;
+    }
+
+    .option-btn.wrong {
+      background-color: rgba(239, 68, 68, 0.18) !important;
+      border-color: var(--accent-red) !important;
+      color: #fca5a5 !important;
+    }
+
+    .option-btn.wrong .option-letter {
+      color: #ef4444 !important;
+    }
+
+    .explanation-box {
+      margin-top: 1.1rem;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      background-color: rgba(59, 130, 246, 0.1);
+      border: 1px solid #2563eb;
+      font-size: 0.92rem;
+      color: #93c5fd;
+      display: none;
+      line-height: 1.5;
+    }
+
+    .explanation-box.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    /* FLASHCARDS */
+    .flashcard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .flashcard {
+      height: 200px;
+      perspective: 1000px;
+      cursor: pointer;
+    }
+
+    .flashcard-inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .flashcard.flipped .flashcard-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flashcard-front, .flashcard-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      border: 1px solid var(--border-color);
+    }
+
+    .flashcard-front {
+      background-color: var(--card-bg);
+      color: var(--text-main);
+    }
+
+    .flashcard-back {
+      background-color: #1e1b4b;
+      color: #c7d2fe;
+      transform: rotateY(180deg);
+      border-color: var(--accent-purple);
+    }
+
+    /* MODAL PLAYER */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.88);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      padding: 1.5rem;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background: var(--card-bg);
+      border-radius: 0.75rem;
+      width: 100%;
+      max-width: 820px;
+      padding: 1.5rem;
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      color: var(--text-main);
+      font-size: 1.6rem;
+      cursor: pointer;
+    }
+
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      margin-top: 1rem;
+      border-radius: 0.5rem;
+      background: #000;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border-color);
+      margin-top: 4rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Sentença e Recursos em Direito Civil — NP1</h1>
+    <p>Plataforma Acadêmica Completa: Caderno Teórico Denso, Guia de Estudos, StreamFlix & Bancos de Questões (Profª Cecília)</p>
+    <div class="badge-alert">⚡ Caderno Acadêmico Integrado — Teoria Densa, Doutrina & Questões OAB</div>
+  </header>
+
+  <nav>
+    <button class="nav-btn active" onclick="switchTab('caderno', event)">📖 Caderno Acadêmico</button>
+    <button class="nav-btn" onclick="switchTab('guia', event)">📚 Guia de Estudos</button>
+    <button class="nav-btn" onclick="switchTab('pegadinhas', event)">⚠️ Alertas de Prova</button>
+    <button class="nav-btn" onclick="switchTab('tabelas', event)">⚖️ Tabelas Resumo</button>
+    <button class="nav-btn" onclick="switchTab('streamflix', event)">🎬 StreamFlix (Vídeos/Áudios)</button>
+    <button class="nav-btn" onclick="switchTab('simulado', event)">📝 Simulado NP1 (40)</button>
+    <button class="nav-btn" onclick="switchTab('questoes_oab', event)">🎯 Questões Padrão OAB (25)</button>
+    <button class="nav-btn" onclick="switchTab('flashcards', event)">🎴 Flashcards</button>
+  </nav>
+
+  <div class="container">
+
+    <!-- TAB: CADERNO ACADÊMICO (MATERIAL DENSO E ESQUEMATIZADO) -->
+    <div id="caderno" class="tab-content active">
+      <div class="caderno-header">
+        <h2 style="color: #60a5fa; font-size: 1.8rem; margin-bottom: 0.5rem;">📖 Caderno Acadêmico de Direito Processual Civil</h2>
+        <p style="color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1.5rem;">
+          Manual Teórico Completo e Esquematizado de <strong>Sentença e Recursos em Direito Civil</strong>. Elaborado com densidade doutrinária, jurisprudencial e artigos expressos do CPC/15 e CF/88 para servir como material definitivo de aprendizagem para a NP1 (Profª Cecília).
+        </p>
+      </div>
+
+      <div class="caderno-body">
+
+        <!-- CAPÍTULO 1 -->
+        <section class="caderno-chapter">
+          <div class="chapter-badge">CAPÍTULO 1</div>
+          <h3 class="chapter-title">Teoria dos Atos Judiciais, Pronunciamentos e Sistema de Recorribilidade</h3>
+          
+          <div class="caderno-card">
+            <h4>1.1. Conceito e Classificação dos Pronunciamentos do Juiz (Art. 203 do CPC)</h4>
+            <p>O Código de Processo Civil de 2015 adota um critério de classificação dos atos do juiz baseado na combinação entre o <strong>conteúdo da decisão</strong> (fundamento nos arts. 485 ou 487) e a sua <strong>função finalística no procedimento</strong> (encerrar ou não uma fase cognitiva do processo ou a execução).</p>
+
+            <ul class="caderno-list">
+              <li>
+                <strong>Sentença (art. 203, § 1º):</strong> É o pronunciamento judicial por meio do qual o juiz, com fundamento nos artigos 485 (sem resolução de mérito) ou 487 (com resolução de mérito), <em>põe fim à fase cognitiva do procedimento comum</em> ou <em>extingue a execução</em>.
+                <br><em>Atenção Doutrinária:</em> A sentença encerra a <u>fase cognitiva de 1º grau</u> no procedimento comum, mas não põe fim à relação processual em si, a qual pode prosseguir em grau recursal (Apelação) ou dar ensejo à fase subsequente de Cumprimento de Sentença (processo sincrético).
+              </li>
+              <li>
+                <strong>Decisão Interlocutória (art. 203, § 2º):</strong> É todo pronunciamento judicial de natureza decisória que <em>não se enquadre no conceito de sentença</em> (critério residual). Resolve questões incidentes no curso do processo sem encerrar a fase cognitiva.
+                <br><em>Sistema Recursal:</em> Se estiver enquadrada no rol do art. 1.015 do CPC (ou preencher o requisito de urgência do Tema 988/STJ), desafia <strong>Agravo de Instrumento</strong> imediato. Caso contrário, não preclui de imediato e deve ser impugnada em preliminar de Apelação ou nas contrarrazões (art. 1.009, § 1º).
+              </li>
+              <li>
+                <strong>Despacho (art. 203, § 3º):</strong> São todos os demais pronunciamentos do juiz praticados no processo de ofício ou a requerimento das partes, voltados exclusivamente ao impulso oficial e andamento do procedimento, <u>sem qualquer conteúdo decisório ou gravame</u>.
+                <br><em>Regra Fundamental:</em> Nos termos do <strong>art. 1.001 do CPC</strong>, dos despachos <strong>NÃO cabe recurso</strong>.
+              </li>
+              <li>
+                <strong>Atos Meramente Ordinatórios (art. 203, § 4º):</strong> São atos de rotina e impulso material (ex: juntada de documentos, vista obrigatória às partes, certidões) praticados diretamente pelos servidores da justiça, independentemente de despacho do juiz, sujeitos a revisão judicial se necessário.
+              </li>
+              <li>
+                <strong>Decisão Monocrática (art. 932) e Acórdão (art. 204):</strong> No âmbito dos Tribunais, as decisões individuais proferidas pelo Desembargador Relator são chamadas de <em>decisões monocráticas</em> (impugnáveis por Agravo Interno - art. 1.021), enquanto as decisões proferidas pelo órgão colegiado (Câmara ou Turma) denominam-se <em>Acórdãos</em>.
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- CAPÍTULO 2 -->
+        <section class="caderno-chapter">
+          <div class="chapter-badge">CAPÍTULO 2</div>
+          <h3 class="chapter-title">Sentenças Terminativas (Art. 485) vs. Sentenças Definitivas (Art. 487)</h3>
+          
+          <div class="caderno-card">
+            <h4>2.1. O Dualismo Fundamental das Sentenças</h4>
+            <p>O legislador infraconstitucional dividiu as sentenças em dois grandes blocos, a depender de o juiz ter enfrentado ou não a pretensão de direito material colocada pelas partes:</p>
+
+            <div class="table-container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Atributo</th>
+                    <th>Sentença Terminativa (Art. 485)</th>
+                    <th>Sentença Definitiva (Art. 487)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Mérito / Pretensão</strong></td>
+                    <td>NÃO resolve o mérito da causa. O juiz extingue o processo por vício processual ou obstáculo formal.</td>
+                    <td>RESOLVE o mérito da causa (acolhe/rejeita o pedido, prescrição/decadência, homologação).</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Tipo de Coisa Julgada</strong></td>
+                    <td>Produz <strong>Coisa Julgada Formal</strong> (imutabilidade estritamente endoprocessual).</td>
+                    <td>Produz <strong>Coisa Julgada Material</strong> (imutabilidade endo e extraprocessual - art. 502).</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Propositura de Nova Ação</strong></td>
+                    <td>A parte <strong>pode propor novamente a ação</strong> (art. 486), desde que escorreito o vício e pagas as custas do anterior.</td>
+                    <td><strong>IMPEDE</strong> a rediscussão da mesma pretensão em nova ação (eficácia preclusiva e imutabilidade).</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Juízo de Retratação</strong></td>
+                    <td>Admite retratação pelo juiz no prazo de 5 dias em caso de Apelação (art. 485, § 7º).</td>
+                    <td>Não admite retratação, salvo nas hipóteses específicas de indeferimento da inicial ou improcedência liminar.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h4>2.2. Detalhamento do Art. 485 do CPC (Sentença Terminativa)</h4>
+            <ul class="caderno-list">
+              <li><strong>I - Indeferimento da petição inicial:</strong> Ocorre quando inepta, a parte for manifestamente ilegítima, faltar interesse processual ou não for atendida a determinação de emenda (art. 330).</li>
+              <li><strong>II e III - Paralisia e Abandono da Causa:</strong> O processo fica parado por mais de 1 ano por negligência das partes (II) ou o autor abandona a causa por mais de 30 dias (III). <em>Requisito obrigatório:</em> Exige-se a intimação pessoal da parte para suprir a falta em 5 dias (§ 1º). A extinção por abandono após a contestação exige requerimento do réu (Súmula 240 do STJ).</li>
+              <li><strong>IV - Ausência de pressupostos processuais:</strong> Faltam pressupostos de constituição ou de desenvolvimento válido e regular do processo.</li>
+              <li><strong>V - Perempção, Litispendência e Coisa Julgada:</strong> Ocorrência de uma das três defesas peremptórias processuais.
+                <br>• <em>Perempção (art. 486, § 3º):</em> Perda do direito de ação pelo autor que dá causa a 3 extinções sucessivas por abandono.
+                <br>• <em>Litispendência:</em> Repetição de ação idêntica em curso (mesmas partes, mesma causa de pedir e mesmo pedido).
+                <br>• <em>Coisa Julgada:</em> Repetição de ação idêntica a outra já julgada por decisão transitada em julgado.
+              </li>
+              <li><strong>VI - Ausência de Legitimidade ou Interesse Processual:</strong> Falta das condições da ação (art. 17).</li>
+              <li><strong>VIII - Homologação da Desistência da Ação:</strong> O autor manifesta expressamente a vontade de renunciar ao processo. Após a contestação, exige o consentimento do réu (art. 485, § 4º).</li>
+            </ul>
+
+            <h4>2.3. Detalhamento do Art. 487 do CPC (Sentença Definitiva)</h4>
+            <ul class="caderno-list">
+              <li><strong>I - Acolhimento ou Rejeição do Pedido:</strong> O julgamento procedente ou improcedente do pedido formulado na ação principal ou na reconvenção.</li>
+              <li><strong>II - Pronunciamento sobre Prescrição ou Decadência:</strong> O acolhimento ou rejeição de prejudicial de mérito prescricional/decadencial <u>resolve o mérito</u> e faz coisa julgada material!
+                <br><em>Atenção ao Princípio da Vedação à Decisão Surpresa (arts. 10 e 487, parágrafo único):</em> O juiz não pode reconhecer a prescrição ou decadência de ofício sem antes conceder às partes a oportunidade de se manifestarem sobre o tema.
+              </li>
+              <li><strong>III - Atos de Homologação com Resolução de Mérito:</strong>
+                <br>a) Homologação do <em>reconhecimento da procedência do pedido</em> formulado pelo réu;
+                <br>b) Homologação da <em>transação (acordo)</em> celebrada entre as partes;
+                <br>c) Homologação da <em>renúncia à pretensão formulada na ação</em> feita pelo autor.
+              </li>
+            </ul>
+
+            <div class="card-trap" style="margin-top: 1rem; padding: 1rem; border-radius: 0.5rem;">
+              <h5 style="color: #fbbf24; font-weight: 700;">⚡ Princípio da Preferência da Decisão de Mérito (Art. 488 do CPC)</h5>
+              <p style="font-size: 0.95rem; margin-top: 0.3rem;">
+                Desde que seja possível, o juiz resolverá o mérito sempre que a decisão for favorável à parte a quem aproveitaria a eventual extinção do processo sem resolução do mérito. Ou seja: o mérito definitivo sempre tem preferência sobre a nulidade formal!
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- CAPÍTULO 3 -->
+        <section class="caderno-chapter">
+          <div class="chapter-badge">CAPÍTULO 3</div>
+          <h3 class="chapter-title">Distinções Fundamentais e Pegadinhas Clássicas de Prova</h3>
+          
+          <div class="caderno-card">
+            <h4>3.1. Desistência da Ação x Renúncia à Pretensão Material</h4>
+            <p>Trata-se do tema com maior índice de pegadinhas em provas acadêmicas e exames da OAB. A compreensão perfeita exige separar o plano processual do plano do direito material:</p>
+
+            <div class="table-container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Parâmetro</th>
+                    <th>Desistência da Ação</th>
+                    <th>Renúncia à Pretensão Material</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Objeto de Incidência</strong></td>
+                    <td>Recai sobre o <u>Processo</u> (relação jurídica processual). O autor abandona a demanda atual.</td>
+                    <td>Recai sobre o <u>Direito Material</u> (pretensão). O autor abre mão do próprio direito subjetivo.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Fundamento Legal</strong></td>
+                    <td>Artigo 485, inciso VIII, do CPC.</td>
+                    <td>Artigo 487, inciso III, alínea 'c', do CPC.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Espécie de Sentença</strong></td>
+                    <td>Sentença <strong>Terminativa</strong> (Sem resolução do mérito).</td>
+                    <td>Sentença <strong>Definitiva</strong> (Com resolução do mérito).</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Eficácia de Coisa Julgada</strong></td>
+                    <td>Apenas <strong>Coisa Julgada Formal</strong>.</td>
+                    <td><strong>Coisa Julgada Material</strong> (Imutabilidade absoluta).</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Efeito de Repropositura</strong></td>
+                    <td>Permite a propositura de nova ação sobre a mesma lide (art. 486).</td>
+                    <td><strong>IMPEDE</strong> definitivamente a propositura de nova ação com o mesmo objeto.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Consentimento do Réu</strong></td>
+                    <td>Exige consentimento do réu se apresentada após a contestação (art. 485, § 4º).</td>
+                    <td>Trata-se de ato unilateral de disposição do autor; <strong>independe de anuência do réu</strong>.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h4>3.2. Prescrição e Decadência: Por que são Matérias de Mérito?</h4>
+            <p>Tanto a prescrição (extinção da pretensão de cobrir/exigir prestação) quanto a decadência (extinção do próprio direito potestativo) são causas que afetam o direito material em debate. Logo, sua declaração judicial encerra a dúvida do litígio de forma definitiva, impedindo que o autor retorne ao Judiciário para cobrar a mesma dívida.</p>
+
+            <h4>3.3. Tríptico de Defesas Peremptórias Processuais: Perempção, Litispendência e Coisa Julgada</h4>
+            <ul class="caderno-list">
+              <li><strong>Litispendência (art. 337, § 1º e § 3º):</strong> Ocorre quando se repete ação que está atualmente em andamento. Gera extinção sem resolução do mérito do segundo processo (art. 485, V).</li>
+              <li><strong>Coisa Julgada (art. 337, § 1º e § 4º):</strong> Ocorre quando se repete ação que já foi decidida por sentença transitada em julgado. Gera extinção sem resolução do mérito (art. 485, V).</li>
+              <li><strong>Perempção (art. 486, § 3º):</strong> Sanção aplicada ao autor que deu causa por 3 vezes à extinção do processo por abandono (art. 485, III). Ele fica impedido de propor nova ação contra o mesmo réu sobre o mesmo objeto. Se o autor violar a perempção e ajuizar a 4ª ação, esta será extinta sem mérito (art. 485, V). O réu, contudo, poderá alegar o direito como matéria de defesa.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- CAPÍTULO 4 -->
+        <section class="caderno-chapter">
+          <div class="chapter-badge">CAPÍTULO 4</div>
+          <h3 class="chapter-title">Julgamento Antecipado Integral (Art. 355) vs. Parcial do Mérito (Art. 356)</h3>
+          
+          <div class="caderno-card">
+            <h4>4.1. O Julgamento do Processo Conforme o Estado em que se Encontra</h4>
+            <p>Não havendo necessidade de produzir novas provas na fase instrutória (causa madura com prova documental completa ou revelia com efeito de presunção de veracidade), o magistrado deve julgar o mérito da causa sem designar audiência de instrução e julgamento.</p>
+
+            <div class="grid-2">
+              <div class="card">
+                <h4 style="color: #60a5fa; font-size: 1.1rem; margin-bottom: 0.5rem;">Julgamento Antecipado Integral (Art. 355)</h4>
+                <p><strong>• Situação:</strong> O juiz julga TODOS os pedidos formulados pelas partes de uma só vez.</p>
+                <p><strong>• Natureza do Ato:</strong> Possui natureza jurídica de <strong>Sentença Definitiva</strong> (art. 487, I).</p>
+                <p><strong>• Função:</strong> Encerra a fase cognitiva do 1º grau de jurisdição.</p>
+                <p><strong>• Recurso Adequado:</strong> <strong>APELAÇÃO</strong> (art. 1.009 do CPC), no prazo de 15 dias úteis.</p>
+              </div>
+
+              <div class="card">
+                <h4 style="color: #f43f5e; font-size: 1.1rem; margin-bottom: 0.5rem;">Julgamento Antecipado Parcial (Art. 356)</h4>
+                <p><strong>• Situação:</strong> O juiz decide <em>apenas um ou alguns dos pedidos</em> (ou parcela deles) que se mostrem incontroversos ou maduros, enquanto o restante do processo prossegue em fase de instrução para os demais pedidos.</p>
+                <p><strong>• Natureza do Ato:</strong> <strong>NÃO É SENTENÇA!</strong> Possui natureza de <strong>Decisão Interlocutória de Mérito</strong>.</p>
+                <p><strong>• Recurso Adequado:</strong> <strong>AGRAVO DE INSTRUMENTO</strong> (art. 356, § 5º c/c art. 1.015, II do CPC).</p>
+                <p><strong>• Eficácia Executiva:</strong> A decisão do art. 356 permite liquidação e <u>cumprimento definitivo de sentença</u> da parte julgada imediatamente, podendo ser levantado dinheiro sem necessidade de caução na pendência do Agravo de Instrumento!</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CAPÍTULO 5 -->
+        <section class="caderno-chapter">
+          <div class="chapter-badge">CAPÍTULO 5</div>
+          <h3 class="chapter-title">Estrutura, Elementos Essenciais e Validade da Sentença (Art. 489 do CPC)</h3>
+          
+          <div class="caderno-card">
+            <h4>5.1. Os Três Elementos Essenciais da Sentença (Art. 489, Caput)</h4>
+            <p>A sentença é um ato solene e lógico. Para ser considerada válida, deve conter obrigatoriamente três partes estruturais:</p>
+
+            <ul class="caderno-list">
+              <li>
+                <strong>1. Relatório (inciso I):</strong> Histórico sumário do processo. Contém os nomes das partes, a suma do pedido e da contestação, e o registro das principais ocorrências havidas no andamento da causa.
+                <br><em>Exceção Legal:</em> O relatório é <u>dispensado</u> nas sentenças proferidas no âmbito dos Juizados Especiais Cíveis (Lei nº 9.099/95, art. 38). Sua ausência na Justiça Comum acarreta nulidade da sentença.
+              </li>
+              <li>
+                <strong>2. Fundamentação ou Motivação (inciso II):</strong> Exposição clara das razões de fato e de direito que formaram o livre convencimento motivado do magistrado (art. 371). Possui assento constitucional obrigatório no <strong>art. 93, inciso IX, da Constituição Federal</strong>, sob pena de nulidade absoluta do ato decisório.
+              </li>
+              <li>
+                <strong>3. Dispositivo ou Conclusão (inciso III):</strong> Comando decisório final em que o juiz resolve as questões principais submetidas pelas partes, acolhendo ou rejeitando os pedidos. É o único elemento que adquire a autoridade de <strong>coisa julgada material</strong> (art. 503). Sentença sem dispositivo é considerada ato <u>inexistente</u>.
+              </li>
+            </ul>
+
+            <h4>5.2. As Hipóteses de Decisão NÃO Fundamentada (Art. 489, § 1º do CPC)</h4>
+            <p>O CPC/15 inovou ao detalhar rigorosamente o que NÃO pode ser aceito como motivação válida. Não se considera fundamentada qualquer decisão judicial (seja interlocutória, sentença ou acórdão) que:</p>
+
+            <div class="table-container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Inciso (Art. 489, § 1º)</th>
+                    <th>Conduta Viciada do Julgador</th>
+                    <th>Efeito Jurídico</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Inciso I</strong></td>
+                    <td>Limitar-se à indicação, reprodução ou paráfrase de ato normativo sem explicar sua relação concreta com a causa.</td>
+                    <td>Nulidade da Sentença por falta de fundamentação.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Inciso II</strong></td>
+                    <td>Empregar conceitos jurídicos indeterminados (ex: "boa-fé", "interesse público") sem explicar o motivo concreto de sua incidência.</td>
+                    <td>Nulidade da Sentença.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Inciso III</strong></td>
+                    <td>Invocar motivos que se prestariam a justificar qualquer outra decisão (fundamentação genérica/padrão).</td>
+                    <td>Nulidade da Sentença.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Inciso IV</strong></td>
+                    <td><strong>Não enfrentar TODOS os argumentos</strong> deduzidos no processo capazes de, em tese, infirmar a conclusão adotada pelo julgador.</td>
+                    <td>Nulidade da Sentença (Atacável por Embargos de Declaração ou Apelação).</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Inciso V</strong></td>
+                    <td>Limitar-se a invocar precedente ou súmula sem identificar seus fundamentos determinantes nem demonstrar a adequação ao caso.</td>
+                    <td>Nulidade da Sentença.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Inciso VI</strong></td>
+                    <td>Deixar de seguir enunciado de súmula ou precedente invocado pela parte sem demonstrar a existência de distinção (<em>distinguishing</em>) ou superação (<em>overruling</em>).</td>
+                    <td>Nulidade da Sentença.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h4>5.3. Princípio da Congruência ou Correlação (Arts. 141 e 492 do CPC)</h4>
+            <p>O juiz deve decidir a lide nos exatos limites em que foi proposta pelo autor na petição inicial, sendo-lhe vedado conhecer de questões não suscitadas a cujo respeito a lei exige iniciativa da parte. Vícios de congruência geram sentenças:</p>
+            <ul class="caderno-list">
+              <li><strong>Ultra Petita:</strong> O juiz concede o pedido do autor, mas em quantidade ou extensão superior à pedida. <em>Sanção:</em> O Tribunal reduz o excesso sem anular a sentença inteira.</li>
+              <li><strong>Extra Petita:</strong> O juiz concede bem da vida diverso daquele que foi expressamente pedido pelo autor. <em>Sanção:</em> A sentença é nula (anulação parcial ou total).</li>
+              <li><strong>Citra / Infra Petita:</strong> O juiz deixa de apreciar um dos pedidos acumulados formulados pelo autor. <em>Sanção:</em> Omitido o pedido, cabem Embargos de Declaração para integração ou Apelação para aplicar a Teoria da Causa Madura (art. 1.013, § 3º, III).</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- CAPÍTULO 6 -->
+        <section class="caderno-chapter">
+          <div class="chapter-badge">CAPÍTULO 6</div>
+          <h3 class="chapter-title">Classificação das Sentenças: Teoria Ternária vs. Teoria Quinária</h3>
+          
+          <div class="caderno-card">
+            <h4>6.1. A Carga Eficacial Predominante das Sentenças de Mérito</h4>
+            <p>A doutrina classifica as sentenças de procedência conforme a eficácia jurídica e o efeito prático que o comando judicial gera no mundo dos fatos:</p>
+
+            <div class="table-container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Teoria e Categoria</th>
+                    <th>Verbo / Núcleo do Comando</th>
+                    <th>Efeito Temporal Típico</th>
+                    <th>Exemplo Prático</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>1. Declaratória</strong> (Ternária e Quinária)</td>
+                    <td><strong>Declarar</strong> a existência, inexistência ou modo de ser de relação jurídica ou falsidade de documento.</td>
+                    <td>Eficácia <strong>Ex Tunc</strong> (Retroativa ao momento da formação da relação).</td>
+                    <td>Ação de Investigação de Paternidade; Ação Declaratória de Inexistência de Débito.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>2. Constitutiva</strong> (Ternária e Quinária)</td>
+                    <td><strong>Criar, Modificar ou Extinguir</strong> uma situação ou relação jurídica anterior.</td>
+                    <td>Eficácia <strong>Ex Nunc</strong> (Prospectiva, produz efeitos do trânsito em julgado em diante).</td>
+                    <td>Ação de Divórcio; Ação Anulatória de Negócio Jurídico por Coação.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>3. Condenatória</strong> (Ternária e Quinária)</td>
+                    <td><strong>Imputar</strong> ao réu o cumprimento de uma prestação (pagar, fazer, não fazer ou entregar).</td>
+                    <td>Cria <strong>Título Executivo Judicial</strong> para posterior fase de cumprimento.</td>
+                    <td>Ação de Indenização por Danos Morais e Materiais.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>4. Mandamental</strong> (Exclusiva da Quinária - Pontes de Miranda)</td>
+                    <td>Expedir uma <strong>Ordem Direta</strong> a uma autoridade ou pessoa para fazer/deixar de fazer algo sob sanção.</td>
+                    <td>Satisfação mediante ordem judicial direta e sanções coercitivas (multa/desobediência).</td>
+                    <td>Sentença concedida em Mandado de Segurança; Ordem de abstenção.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>5. Executiva Lato Sensu</strong> (Exclusiva da Quinária - Pontes de Miranda)</td>
+                    <td>Efetivar a <strong>Retomada / Satisfação Prática</strong> no próprio processo sem nova ação executiva.</td>
+                    <td>Autoexecutável (atos sub-rogatórios materiais imediatos do juiz).</td>
+                    <td>Ação de Reintegração de Posse; Ação de Despejo.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- CAPÍTULO 7 -->
+        <section class="caderno-chapter">
+          <div class="chapter-badge">CAPÍTULO 7</div>
+          <h3 class="chapter-title">Coisa Julgada Material e Formal, Limites Objetivos/Subjetivos e Exceções</h3>
+          
+          <div class="caderno-card">
+            <h4>7.1. Conceito e Função Constitucional (Art. 502 do CPC e Art. 5º, XXXVI da CF/88)</h4>
+            <p>Denomina-se <strong>coisa julgada material</strong> a autoridade que torna <em>imutável e indiscutível</em> a decisão de mérito não mais sujeita a recurso (art. 502). Trata-se de garantia fundamental positivada no art. 5º, inciso XXXVI, da Constituição Federal, destinada a assegurar a estabilidade das relações sociais e a segurança jurídica.</p>
+
+            <h4>7.2. Pressupostos de Formação da Coisa Julgada Material</h4>
+            <p>Para que se forme a coisa julgada material, exige-se a presença de 3 requisitos cumulativos:</p>
+            <ol class="caderno-list">
+              <li><strong>Decisão sobre o Mérito:</strong> O pronunciamento judicial deve ter apreciado o mérito (art. 487), acolhendo ou rejeitando a pretensão.</li>
+              <li><strong>Cognição Exauriente (Aprofundada):</strong> A causa deve ter sido julgada mediante instrução e contraditório plenos. <em>Consequência:</em> Decisões proferidas em cognição sumária (tutelas provisórias/liminares) <u>NÃO fazem coisa julgada material</u>!</li>
+              <li><strong>Trânsito em Julgado:</strong> O esgotamento dos prazos ou das vias recursais sem interposição de recurso (ou após o julgamento do último recurso cabível).</li>
+            </ol>
+
+            <h4>7.3. Os Limites Objetivos da Coisa Julgada (Arts. 503 e 504 do CPC)</h4>
+            <p>Os limites objetivos definem <em>sobre o que</em> recai a imutabilidade do julgado:</p>
+            <ul class="caderno-list">
+              <li><strong>O que FAZ Coisa Julgada (Art. 503, caput):</strong> A imutabilidade recai unicamente sobre a <strong>questão principal expressamente decidida contida no Dispositivo</strong> da sentença. Não há coisa julgada implícita.</li>
+              <li><strong>O que NÃO FAZ Coisa Julgada (Art. 504):</strong>
+                <br>• <strong>I - Os motivos / fundamentação:</strong> Ainda que importantes para determinar o alcance da parte dispositiva da sentença;
+                <br>• <strong>II - A verdade dos fatos:</strong> Estabelecida como fundamento da sentença.
+              </li>
+            </ul>
+
+            <h4>7.4. A Exceção da Questão Prejudicial Incidental (Art. 503, § 1º do CPC)</h4>
+            <p>Excepcionalmente, a autoridade da coisa julgada material se estenderá à resolução de uma <strong>questão prejudicial</strong> decidida de forma incidental na fundamentação da sentença se preenchidos <u>cumulativamente</u> os 4 requisitos do art. 503, § 1º:</p>
+            <div class="grid-2">
+              <div class="card card-trap">
+                <p><strong>1. Dependência Própria:</strong> Do seu conhecimento depender o julgamento do mérito principal (ex: declaração de paternidade como premissa para julgar alimentos);</p>
+                <p><strong>2. Contraditório Efetivo:</strong> A seu respeito tiver havido contraditório prévio e efetivo (<u>NÃO se aplica em caso de revelia</u>);</p>
+              </div>
+              <div class="card card-trap">
+                <p><strong>3. Competência Absoluta do Juízo:</strong> O juízo tiver competência em razão da matéria e da pessoa para resolvê-la como questão principal;</p>
+                <p><strong>4. Cognição Plena:</strong> No processo não houver restrições probatórias ou limitações à cognição que impeçam o aprofundamento da análise (§ 2º).</p>
+              </div>
+            </div>
+
+            <h4>7.5. Eficácia Preclusiva da Coisa Julgada (Art. 508 do CPC)</h4>
+            <p>Transitada em julgado a decisão de mérito, reputam-se deduzidas e repelidas <strong>todas as alegações e defesas</strong> que a parte poderia ter formulado para o acolhimento ou rejeição do pedido (o princípio do deduzido e do dedutível). Impede que a parte vencida reabra o processo alegando argumento que esqueceu de apresentar na contestação.</p>
+
+            <h4>7.6. Limites Subjetivos (Art. 506 do CPC)</h4>
+            <p>A sentença faz coisa julgada <em>inter partes</em> (entre as partes entre as quais é dada), <strong>NÃO PREJUDICANDO TERCEIROS</strong> que não participaram do processo e do contraditório prévio.</p>
+          </div>
+        </section>
+
+        <!-- CAPÍTULO 8 -->
+        <section class="caderno-chapter">
+          <div class="chapter-badge">CAPÍTULO 8</div>
+          <h3 class="chapter-title">Teoria Geral dos Recursos e Princípios Recursais Fundamentalíssimos</h3>
+          
+          <div class="caderno-card">
+            <h4>8.1. Conceito de Recurso</h4>
+            <p>Recurso é o meio voluntário, idôneo e interno ao próprio processo (desdobramento do direito de ação), previsto expressamente em lei, utilizado para provocar o reexame de uma decisão judicial perante o mesmo órgão ou órgão superior, com o objetivo de reformar, anular, esclarecer ou integrar o julgado.</p>
+
+            <h4>8.2. Princípios Recursais Informativos do CPC/15</h4>
+            <ul class="caderno-list">
+              <li>
+                <strong>1. Princípio do Duplo Grau de Jurisdição:</strong> Garantia de que as decisões judiciais possam ser revistas por um órgão jurisdicional de grau superior (geralmente colegiado e composto por magistrados mais experientes). Trata-se de princípio constitucional <em>implícito</em> (decorrente do devido processo legal - art. 5º, LV, CF).
+              </li>
+              <li>
+                <strong>2. Princípio da Taxatividade (Art. 994 do CPC):</strong> O rol de recursos no ordenamento é <em>fechado (numerus clausus)</em>. Somente a lei federal pode criar espécies recursais. As partes ou jurisprudência não podem inventar novos recursos. O CPC/15 elenca 9 recursos no art. 994 (Apelação, Agravo de Instrumento, Agravo Interno, Embargos de Declaração, Recurso Ordinário, Recurso Especial, Recurso Extraordinário, Agravo em RE/REsp e Embargos de Divergência).
+              </li>
+              <li>
+                <strong>3. Princípio da Singularidade / Unirrecorribilidade / Unicidade:</strong> Para cada tipo de decisão judicial existe apenas <strong>um recurso adequado</strong> no sistema. É vedado interpor dois recursos simultâneos contra a mesma decisão.
+              </li>
+              <li>
+                <strong>4. Princípio da Dialeticidade (Art. 1.010, III e Art. 932, III):</strong> O recurso exige fundamentação específica. O recorrente deve impugnar expressamente os fundamentos fáticos e jurídicos adotados na decisão atacada. A cópia genérica da petição inicial ou contestação viola a dialeticidade e impede o conhecimento do recurso.
+              </li>
+              <li>
+                <strong>5. Princípio da Proibição da Reformatio in Pejus:</strong> Havendo recurso exclusivo de uma das partes, o Tribunal não pode piorar a situação do recorrente em benefício do recorrido que não recorreu. <em>Exceção:</em> Matérias de ordem pública cognoscíveis de ofício (efeito translativo).
+              </li>
+              <li>
+                <strong>6. Princípio da Fungibilidade Recursal (Art. 1.024, § 3º e Arts. 1.032/1.033):</strong> Permite ao órgão julgador receber um recurso erroneamente interposto como se fosse o recurso correto, desde que: (a) haja dúvida objetiva na doutrina/jurisprudência; (b) não haja erro grosseiro; e (c) o recurso tenha sido interposto no prazo do recurso adequado.
+              </li>
+              <li>
+                <strong>7. Princípio da Primazia do Julgamento de Mérito (Art. 4º e Art. 932, parágrafo único):</strong> O sistema recursal privilegia o saneamento de vícios formais. Antes de considerar inadmissível o recurso por vício sanável ou documentação incompleta, o relator deve conceder prazo de <strong>5 dias</strong> para o recorrente sanar o vício ou complementar as custas/documentos.
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- CAPÍTULO 9 -->
+        <section class="caderno-chapter">
+          <div class="chapter-badge">CAPÍTULO 9</div>
+          <h3 class="chapter-title">Juízo de Admissibilidade x Juízo de Mérito e Vícios Recursais</h3>
+          
+          <div class="caderno-card">
+            <h4>9.1. A Dualidade de Juízos do Órgão Julgador</h4>
+            <p>Ao receber um recurso, o Tribunal realiza dois exames sucessivos em ordem lógica e vinculante:</p>
+
+            <div class="table-container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Fase do Julgamento</th>
+                    <th>Objeto de Análise</th>
+                    <th>Resultado Positivo</th>
+                    <th>Resultado Negativo</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>1. Juízo de Admissibilidade</strong> (Filtro Formal Externo)</td>
+                    <td>Preenchimento dos requisitos intrínsecos e extrínsecos de validade do recurso.</td>
+                    <td><strong>CONHECER</strong> do recurso (O recurso passa pelo filtro formal).</td>
+                    <td><strong>NÃO CONHECER</strong> do recurso (Inadmissibilidade recursal).</td>
+                  </tr>
+                  <tr>
+                    <td><strong>2. Juízo de Mérito Recursal</strong> (Análise do Pedido)</td>
+                    <td>Apreciação dos erros alegados na decisão (error in procedendo ou in judicando).</td>
+                    <td><strong>DAR PROVIMENTO</strong> ao recurso (Acolhe a pretensão do recorrente).</td>
+                    <td><strong>NEGAR PROVIMENTO</strong> (Desprover - Mantém a decisão recorrida).</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h4>9.2. Requisitos de Admissibilidade Recursal</h4>
+            <ul class="caderno-list">
+              <li><strong>Requisitos Intrínsecos (inerentes ao direito de recorrer):</strong>
+                <br>• <em>Cabimento:</em> O recurso deve estar previsto em lei para a espécie de ato atacado.
+                <br>• <em>Legitimidade Recursal (art. 996):</em> Parte vencida, terceiro prejudicado ou Ministério Público.
+                <br>• <em>Interesse Recursal:</em> Binômio utilidade-necessidade decorrente da sucumbência (prejuízo).
+                <br>• <em>Inexistência de fato impeditivo ou extintivo:</em> Não ter havido renúncia ao recurso (art. 999), aceitação expressa/tácita da decisão (art. 1.000) ou desistência (art. 998).
+              </li>
+              <li><strong>Requisitos Extrínsecos (relativos ao exercício do recurso):</strong>
+                <br>• <em>Tempestividade:</em> Interposição dentro do prazo legal (15 dias úteis para todos os recursos, exceto Embargos de Declaração que são 5 dias - art. 1.003, § 5º).
+                <br>• <em>Preparo:</em> Comprovação do recolhimento das taxas judiciárias e porte de remessa/retorno (quando couber), sob pena de deserção.
+                <br>• <em>Regularidade Formal:</em> Atendimento à forma escrita, qualificação, razões e pedido de reforma ou anulação (dialeticidade).
+              </li>
+            </ul>
+
+            <h4>9.3. Vícios Recursais: Error in Procedendo vs. Error in Judicando</h4>
+            <div class="grid-2">
+              <div class="card">
+                <h4 style="color: #60a5fa; font-size: 1.05rem;">Error in Procedendo (Vício de Forma/Procedimento)</h4>
+                <p><strong>• Conceito:</strong> O juiz comete um vício de atividade na marcha processual ou descumpre regra de forma (ex: ausência de fundamentação, cerceamento de defesa por indeferimento indevido de prova, sentença extra petita).</p>
+                <p><strong>• Pedido Recursal Adequado:</strong> Pedido de <strong>ANULAÇÃO / INVALIDAÇÃO / CASSAÇÃO</strong> da sentença.</p>
+                <p><strong>• Consequência:</strong> Em regra, anula-se o ato e os autos retornam à origem para novo julgamento (salvo aplicação da Causa Madura).</p>
+              </div>
+
+              <div class="card">
+                <h4 style="color: #10b981; font-size: 1.05rem;">Error in Judicando (Vício de Julgamento/Conteúdo)</h4>
+                <p><strong>• Conceito:</strong> O juiz errou na valoração dos fatos, na apreciação das provas ou na aplicação do direito material ao caso concreto (injustiça da decisão).</p>
+                <p><strong>• Pedido Recursal Adequado:</strong> Pedido de <strong>REFORMA</strong> da decisão.</p>
+                <p><strong>• Consequência:</strong> O Tribunal julga o mérito e profere novo julgamento em substituição à decisão de 1º grau (efeito substitutivo - art. 1.008).</p>
+              </div>
+            </div>
+
+            <h4 style="margin-top: 1rem;">9.4. Teoria da Causa Madura (Art. 1.013, § 3º do CPC)</h4>
+            <p>Se o processo estiver em condições de imediato julgamento (prova documental suficiente), o Tribunal <strong>deve decidir desde logo o mérito</strong> quando:</p>
+            <ol class="caderno-list">
+              <li>Reformar sentença fundada no art. 485 (sentença terminativa);</li>
+              <li>Decreta a nulidade da sentença por não ser ela congruente com os limites do pedido (extra/citra petita);</li>
+              <li>Constatar a omissão no exame de um dos pedidos (sentença citra petita);</li>
+              <li>Decreta a nulidade da sentença por falta de fundamentação (art. 489, § 1º);</li>
+              <li>Reformar sentença que reconheça erroneamente a prescrição ou a decadência (§ 4º).</li>
+            </ol>
+          </div>
+        </section>
+
+        <!-- CAPÍTULO 10 -->
+        <section class="caderno-chapter">
+          <div class="chapter-badge">CAPÍTULO 10</div>
+          <h3 class="chapter-title">Efeitos dos Recursos e Regime Jurídico da Apelação (Art. 1.009)</h3>
+          
+          <div class="caderno-card">
+            <h4>10.1. A Panoplia de Efeitos Recursais</h4>
+            <ul class="caderno-list">
+              <li><strong>Efeito Devolutivo (art. 1.013):</strong> Transfere ao Tribunal o conhecimento da matéria impugnada. Fixa a extensão (o que foi recorrido) e a profundidade (todos os fundamentos ligados ao capítulo impugnado).</li>
+              <li><strong>Efeito Suspensivo (art. 1.012):</strong> Impede a produção imediata dos efeitos e a execução da decisão recorrida enquanto pendente o recurso.</li>
+              <li><strong>Efeito Regressivo / Juízo de Retratação (art. 485, § 7º e art. 331):</strong> Permite ao próprio juiz prolator reformar sua própria decisão no prazo de 5 dias após a interposição da Apelação.</li>
+              <li><strong>Efeito Translativo:</strong> Permite ao Tribunal examinar de ofício matérias de ordem pública (ex: condições da ação, prescrição, nulidades absolutas), independentemente de provocação das partes.</li>
+            </ul>
+
+            <h4>10.2. Regime Especial do Efeito Suspensivo na Apelação (Art. 1.012 do CPC)</h4>
+            <p><strong>REGRA GERAL:</strong> A Apelação possui <strong>efeito suspensivo automático (ope legis)</strong>, conforme caput do art. 1.012.</p>
+            <p><strong>EXCEÇÕES (Art. 1.012, § 1º) — Produzem efeitos IMEDIATAMENTE após a publicação:</strong></p>
+            <ul class="caderno-list">
+              <li>I - Sentença que homologa divisão ou demarcação de terras;</li>
+              <li>II - Sentença que <strong>condena a pagar alimentos</strong>;</li>
+              <li>III - Sentença que extingue sem resolução do mérito ou julga improcedentes os embargos do executado;</li>
+              <li>IV - Sentença que julga procedente o pedido de instituição de arbitragem;</li>
+              <li>V - Sentença que <strong>confirma, concede ou revoga TUTELA PROVISÓRIA</strong>;</li>
+              <li>VI - Sentença que decreta a interdição.</li>
+            </ul>
+            <p><em>Obtenção de Efeito Suspensivo Ope Judicis (§ 3º e § 4º):</em> Nas hipóteses do § 1º, o relator poderá suspender a eficácia da sentença se o apelante demonstrar a probabilidade de provimento do recurso OU a existência de fundamentação relevante com risco de dano grave ou de difícil reparação.</p>
+
+            <h4>10.3. O Resgate das Interlocutórias Não Agraváveis (Art. 1.009, § 1º do CPC)</h4>
+            <p>Com o fim do Agravo Retido, as decisões interlocutórias que não constam do rol do art. 1.015 do CPC <u>não precluem de imediato</u>. Elas devem ser suscitadas como <strong>preliminar de Apelação</strong> (se pelo apelante) ou em <strong>preliminar nas Contrarrazões</strong> (se pelo apelado, que terá 15 dias para responder - § 2º).</p>
+
+            <h4>10.4. Nova Técnica de Julgamento do Art. 942 do CPC (Substituta dos Embargos Infringentes)</h4>
+            <p>Quando o resultado da Apelação for <strong>NÃO UNÂNIME (2x1)</strong> e ensejar a <strong>REFORMA de sentença de mérito</strong>, o julgamento não se encerra. O julgamento terá prosseguimento em sessão a ser designada com a convocação de outros julgadores integrantes do mesmo órgão (mais 2 desembargadores) em número suficiente para garantir a possibilidade de inversão do resultado.</p>
+          </div>
+        </section>
+
+        <!-- CAPÍTULO 11 -->
+        <section class="caderno-chapter">
+          <div class="chapter-badge">CAPÍTULO 11</div>
+          <h3 class="chapter-title">Recursos em Espécie nos Tribunais: Agravo de Instrumento, Agravo Interno e Embargos de Declaração</h3>
+          
+          <div class="caderno-card">
+            <h4>11.1. Agravo de Instrumento (Arts. 1.015 a 1.020 do CPC)</h4>
+            <p>Recurso cabível contra decisões interlocutórias específicas proferidas no 1º grau de jurisdição. É interposto <u>diretamente no Tribunal</u> (órgão ad quem).</p>
+
+            <ul class="caderno-list">
+              <li><strong>Hipóteses de Cabimento (Art. 1.015, I a XIII):</strong> Tutelas provisórias (I); mérito do processo/julgamento parcial (II); convenção de arbitragem (III); incidente de desconsideração da personalidade jurídica (IV); gratuidade da justiça (V); exibição de documento (VI); exclusão de litisconsorte (VII); intervenção de terceiros (IX); redistribuição do ônus da prova (XI); e decisões proferidas nas fases de <em>liquidação, cumprimento de sentença, execução e inventário</em> (parágrafo único).</li>
+              <li><strong>Tese da Taxatividade Mitigada (Tema 988/STJ):</strong> O rol do art. 1.015 do CPC é de taxatividade mitigada, admitindo-se a interposição de Agravo de Instrumento fora do rol quando verificada a <strong>urgência decorrente da inutilidade do julgamento da questão em futura apelação</strong>.</li>
+              <li><strong>Prazo e Preparo:</strong> Prazo de 15 dias úteis, exigindo-se comprovante de preparo no ato da interposição e formação do instrumento (peças obrigatórias do art. 1.017 no processo físico).</li>
+            </ul>
+
+            <h4>11.2. Agravo Interno (Art. 1.021 do CPC)</h4>
+            <p>Recurso cabível contra qualquer <strong>decisão monocrática proferida pelo Relator</strong> no Tribunal (com base no art. 932 do CPC). É dirigido ao próprio relator, no prazo de 15 dias úteis, para que exerça juízo de retratação ou submeta o recurso ao julgamento do órgão colegiado (Câmara/Turma).</p>
+
+            <h4>11.3. Embargos de Declaração (Arts. 1.022 a 1.026 do CPC)</h4>
+            <p>Recurso de fundamentação vinculada, vocacionado a integrar, aclarar ou aperfeiçoar qualquer decisão judicial.</p>
+
+            <div class="table-container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Atributo</th>
+                    <th>Regra dos Embargos de Declaração</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Cabimento (Art. 1.022)</strong></td>
+                    <td>Contra QUALQUER decisão judicial para: (I) esclarecer <strong>obscuridade</strong> ou eliminar <strong>contradição</strong>; (II) suprir <strong>omissão</strong>; (III) corrigir <strong>erro material</strong>.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Prazo (Art. 1.023)</strong></td>
+                    <td><strong>5 dias úteis</strong> (Única exceção ao prazo geral de 15 dias úteis dos recursos).</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Preparo</strong></td>
+                    <td><strong>ISENTO DE PREPARO</strong> (Não há recolhimento de custas).</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Efeito sobre Prazos (Art. 1.026)</strong></td>
+                    <td><strong>INTERROMPEM</strong> o prazo para a interposição de qualquer outro recurso para AMBAS as partes. O prazo recomeça do zero após a intimação do julgamento dos embargos.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Efeito Modificativo / Infringente</strong></td>
+                    <td>Excepcionalmente, ao suprir omissão ou eliminar contradição, a decisão pode ser alterada. Exige intimação prévia do embargado para contrarrazões em 5 dias (art. 1.023, § 2º).</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Fins de Prequestionamento (Art. 1.025)</strong></td>
+                    <td>Consideram-se incluídos no acórdão os elementos suscitados nos ED para fins de prequestionamento perante os Tribunais Superiores (STJ/STF), mesmo que os embargos sejam rejeitados (prequestionamento fictício).</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h4>11.4. Recursos Aos Tribunais Superiores: REsp (STJ) e RE (STF)</h4>
+            <ul class="caderno-list">
+              <li><strong>Recurso Especial - REsp (Art. 105, III da CF):</strong> Julgado pelo Superior Tribunal de Justiça (STJ) para uniformizar a interpretação da <em>lei federal infraconstitucional</em>. Não reexamina matéria fática (Súmula 7/STJ). Exige prévio esgotamento das instâncias ordinárias e prequestionamento.</li>
+              <li><strong>Recurso Extraordinário - RE (Art. 102, III da CF):</strong> Julgado pelo Supremo Tribunal Federal (STF) como guardião da <em>Constituição Federal</em>. Exige a demonstração obrigatória do requisito de <strong>Repercussão Geral</strong> (relevância econômica, política, social ou jurídica que ultrapasse os interesses subjetivos da causa - art. 1.035 do CPC). Não reexamina provas (Súmula 279/STF).</li>
+            </ul>
+          </div>
+        </section>
+
+      </div>
+    </div>
+
+    <!-- TAB 1: GUIA DE ESTUDOS -->
+    <div id="guia" class="tab-content">
+      <h2 style="margin-bottom: 1.5rem; color: #60a5fa;">Módulos de Estudo Dirigido (Aulas 1 a 11)</h2>
+      
+      <div class="grid-2">
+        <div class="card">
+          <h3><span>1.</span> Atos Judiciais e Recorribilidade</h3>
+          <p><strong>A) Sentença (art. 203, § 1º):</strong> Pronunciamento com fundamento nos arts. 485 ou 487 que encerra a fase cognitiva no 1º grau ou extingue a execução. Recurso: <em>Apelação</em>.</p>
+          <p><strong>B) Decisão Interlocutória (art. 203, § 2º):</strong> Ato decisório que não encerra a fase cognitiva. Se estiver no rol do art. 1.015, cabe <em>Agravo de Instrumento</em>; se não estiver, suscita-se em preliminar de Apelação ou contrarrazões.</p>
+          <p><strong>C) Decisão Monocrática (art. 932):</strong> Decisão individual do Relator no Tribunal. Recurso: <em>Agravo Interno</em> (art. 1.021).</p>
+          <p><strong>D) Despacho (art. 203, § 3º):</strong> Mero andamento processual sem conteúdo decisório. São <strong>IRRECORRÍVEIS</strong> (art. 1.001).</p>
+        </div>
+
+        <div class="card">
+          <h3><span>2.</span> Sentença Terminativa x Definitiva</h3>
+          <p><strong>• Sentença Terminativa (art. 485):</strong> Não resolve o mérito. Produz <strong>coisa julgada formal</strong>. Admite nova propositura da ação (art. 486), desde que sanado o vício e pagas as custas.</p>
+          <p><strong>• Sentença Definitiva (art. 487):</strong> Resolve o mérito (acolhe/rejeita pedido, prescrição/decadência, homologação de renúncia/transação/reconhecimento). Produz <strong>coisa julgada material</strong>.</p>
+          <p><strong>• Preferência do Mérito (art. 488):</strong> Sempre que possível, o juiz deve resolver o mérito se a decisão for favorável à parte a quem aproveitaria a extinção sem mérito.</p>
+        </div>
+
+        <div class="card">
+          <h3><span>3.</span> Julgamento Antecipado: Integral x Parcial</h3>
+          <p><strong>• Julgamento Antecipado Integral (art. 355):</strong> O juiz julga TODOS os pedidos de plano. É <strong>Sentença Definitiva</strong>. Desafia recurso de <strong>Apelação</strong>.</p>
+          <p><strong>• Julgamento Antecipado Parcial do Mérito (art. 356):</strong> O juiz decide apenas um pedido incontroverso ou maduro e deixa o resto prosseguir. <strong>NÃO É SENTENÇA!</strong> É decisão interlocutória de mérito. Desafia <strong>Agravo de Instrumento</strong> (art. 356, § 5º e art. 1.015, II).</p>
+        </div>
+
+        <div class="card">
+          <h3><span>4.</span> Elementos da Sentença e Nulidades</h3>
+          <p><strong>1. Relatório:</strong> Histórico do processo. Sua falta gera NULIDADE (dispensado apenas nos Juizados Especiais — Lei 9.099/95, art. 38).</p>
+          <p><strong>2. Fundamentação:</strong> Análise de fato e direito. Exigência constitucional (art. 93, IX, CF). Decisão sem fundamentação adequada (art. 489, § 1º) é <strong>NULA</strong>.</p>
+          <p><strong>3. Dispositivo:</strong> Comando decisório final. Decisão sem dispositivo é <strong>INEXISTENTE</strong>.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 2: PEGADINHAS DE PROVA -->
+    <div id="pegadinhas" class="tab-content">
+      <h2 style="margin-bottom: 1.5rem; color: #fbbf24;">⚠️ As 7 Pegadinhas Frequentes Anunciadas pela Professora</h2>
+
+      <div class="grid-2">
+        <div class="card card-trap">
+          <h3>1. Desistência da Ação x Renúncia à Pretensão</h3>
+          <p><strong>• Desistência da Ação (art. 485, VIII):</strong> Abandono do processo. Gera sentença <em>terminativa</em> (sem mérito). Não impede nova ação.</p>
+          <p><strong>• Renúncia à Pretensão (art. 487, III, 'c'):</strong> Abdicação do próprio direito material. Gera sentença <em>definitiva</em> (com mérito). IMPEDE repetição da ação!</p>
+        </div>
+
+        <div class="card card-trap">
+          <h3>2. Prescrição e Decadência</h3>
+          <p><strong>Atenção:</strong> O reconhecimento de prescrição ou decadência (art. 487, II) <strong>RESOLVE O MÉRITO</strong> e gera sentença <strong>DEFINITIVA</strong> com eficácia de coisa julgada material, e NÃO sentença terminativa!</p>
+        </div>
+
+        <div class="card card-trap">
+          <h3>3. Liminar / Tutela Provisória faz Coisa Julgada?</h3>
+          <p><strong>JAMAIS!</strong> Decisões proferidas em cognição sumária/superficial (tutelas provisórias/liminares) <strong>não fazem coisa julgada material</strong>. Elas são provisórias e revogáveis a qualquer tempo.</p>
+        </div>
+
+        <div class="card card-trap">
+          <h3>4. O que FICA de fora da Coisa Julgada Material?</h3>
+          <p>Nos termos do art. 504 do CPC, <strong>NÃO FAZEM coisa julgada material:</strong></p>
+          <p>1. Os <em>motivos / fundamentação</em> da sentença (ainda que importantes).</p>
+          <p>2. A <em>verdade dos fatos</em> estabelecida como fundamento da decisão.</p>
+        </div>
+
+        <div class="card card-trap">
+          <h3>5. Quando o Relator NÃO CONHECE do Recurso</h3>
+          <p>Não conhecer = o recurso travou na <strong>Admissibilidade</strong> (falta de requisito formal). Não houve exame de mérito! O recurso não é "improcedente", é <em>inadmissível</em>. Contra essa decisão monocrática cabe <strong>Agravo Interno</strong> (art. 1.021).</p>
+        </div>
+
+        <div class="card card-trap">
+          <h3>6. Error in procedendo x Error in judicando</h3>
+          <p><strong>• Error in procedendo:</strong> Vício na forma/procedimento (ex: sem fundamentação). O pedido é de <strong>ANULAÇÃO / INVALIDAÇÃO</strong>.</p>
+          <p><strong>• Error in judicando:</strong> Vício no conteúdo/julgamento dos fatos ou direito. O pedido é de <strong>REFORMA</strong>.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 3: TABELAS RESUMO -->
+    <div id="tabelas" class="tab-content">
+      <h2 style="margin-bottom: 1.5rem; color: #a7f3d0;">⚖️ Resumos Esquemáticos CPC/15</h2>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Ato Judicial</th>
+              <th>Conceito / Função</th>
+              <th>Recurso Cabível</th>
+              <th>Eficácia / Observação</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Sentença</strong></td>
+              <td>Põe fim à fase cognitiva ou extingue a execução (arts. 485/487)</td>
+              <td>Apelação (15 dias)</td>
+              <td>Pode ter ou não resolução de mérito</td>
+            </tr>
+            <tr>
+              <td><strong>Decisão Interlocutória</strong></td>
+              <td>Resolve questão incidente sem encerrar a fase cognitiva</td>
+              <td>Agravo de Instrumento (art. 1.015) ou Preliminar de Apelação</td>
+              <td>Se não estiver no rol do 1.015, não preclui de imediato</td>
+            </tr>
+            <tr>
+              <td><strong>Decisão Monocrática</strong></td>
+              <td>Decisão proferida individualmente pelo Relator no Tribunal</td>
+              <td>Agravo Interno (art. 1.021 - 15 dias)</td>
+              <td>Atacada perante o próprio órgão colegiado</td>
+            </tr>
+            <tr>
+              <td><strong>Despacho</strong></td>
+              <td>Ato de mero andamento processual sem conteúdo decisório</td>
+              <td><strong>NENHUM (Irrecorrível)</strong></td>
+              <td>Art. 1.001 do CPC</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Julgamento Antecipado</th>
+              <th>Artigo CPC</th>
+              <th>Natureza do Ato</th>
+              <th>Recurso Adequado</th>
+              <th>Efeito Prático</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Integral do Mérito</strong></td>
+              <td>Art. 355</td>
+              <td>Sentença Definitiva</td>
+              <td>Apelação</td>
+              <td>Encerra a fase cognitiva de 1º grau</td>
+            </tr>
+            <tr>
+              <td><strong>Parcial do Mérito</strong></td>
+              <td>Art. 356</td>
+              <td>Decisão Interlocutória</td>
+              <td>Agravo de Instrumento</td>
+              <td>O restante do processo prossegue instruindo</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TAB 4: STREAMFLIX (VÍDEOS & ÁUDIOS) -->
+    <div id="streamflix" class="tab-content">
+      <div class="netflix-header">
+        <h2>🎬 StreamFlix — Mídia de Estudos NP1</h2>
+        <p style="color: var(--text-muted);">Assista aos vídeos de revisão e ouça o áudio da jornada processual produzidos para a sua prova.</p>
+      </div>
+
+      <div class="netflix-grid">
+        <div class="media-card">
+          <div class="media-thumb">
+            <div class="play-btn" onclick="openMedia('https://www.youtube.com/embed/51PhDnIH6Lg', 'Sentença Terminativa vs. Definitiva na Prova')">▶</div>
+          </div>
+          <div class="media-body">
+            <div class="media-title">1. Sentença Terminativa x Definitiva</div>
+            <div class="media-desc">Diferenças cruciais entre art. 485 e 487 do CPC. Pegadinha de desistência x renúncia.</div>
+            <div class="media-footer">
+              <span class="tag tag-cpc">Vídeo Short</span>
+              <span>⏱️ YouTube</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="media-card">
+          <div class="media-thumb">
+            <div class="play-btn" onclick="openMedia('https://www.youtube.com/embed/pN6e9oUPMjs', 'Julgamento Antecipado: Cuidado com o Recurso')">▶</div>
+          </div>
+          <div class="media-body">
+            <div class="media-title">2. Julgamento Antecipado</div>
+            <div class="media-desc">Comparativo entre art. 355 (Apelação) e art. 356 (Agravo de Instrumento).</div>
+            <div class="media-footer">
+              <span class="tag tag-cpc">Vídeo Short</span>
+              <span>⏱️ YouTube</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="media-card">
+          <div class="media-thumb">
+            <div class="play-btn" onclick="openMedia('https://www.youtube.com/embed/MT6gQG0CovM', 'Os Limites da Coisa Julgada Material')">▶</div>
+          </div>
+          <div class="media-body">
+            <div class="media-title">3. Limites da Coisa Julgada</div>
+            <div class="media-desc">O que fica imutável no dispositivo e a exceção da questão prejudicial (art. 503, § 1º).</div>
+            <div class="media-footer">
+              <span class="tag tag-cpc">Vídeo Short</span>
+              <span>⏱️ YouTube</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="media-card">
+          <div class="media-thumb">
+            <div class="play-btn" onclick="openMedia('https://www.youtube.com/embed/RCoXSZPCOUY', 'Filtros Recursais: Conhecer, Anular ou Reformar')">▶</div>
+          </div>
+          <div class="media-body">
+            <div class="media-title">4. Filtros Recursais & Erros</div>
+            <div class="media-desc">Admissibilidade x Mérito e a diferença prática entre Error in procedendo e in judicando.</div>
+            <div class="media-footer">
+              <span class="tag tag-cpc">Vídeo Short</span>
+              <span>⏱️ YouTube</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="media-card">
+          <div class="media-thumb">
+            <div class="play-btn" onclick="openMedia('https://www.youtube.com/embed/WbpEYvoNDFU', 'Apelação na Prática')">▶</div>
+          </div>
+          <div class="media-body">
+            <div class="media-title">5. Apelação na Prática</div>
+            <div class="media-desc">Efeito suspensivo, exceções do art. 1.012 e resgate das interlocutórias não agraváveis.</div>
+            <div class="media-footer">
+              <span class="tag tag-cpc">Vídeo Short</span>
+              <span>⏱️ YouTube</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="media-card">
+          <div class="media-thumb">
+            <div class="play-btn" onclick="openMedia('https://www.youtube.com/embed/ovQUVY4WqCQ', 'A Jornada Processual Completa')">▶</div>
+          </div>
+          <div class="media-body">
+            <div class="media-title">6. A Jornada Processual</div>
+            <div class="media-desc">Visão panorâmica de todo o conteúdo da NP1, da petição inicial ao acórdão.</div>
+            <div class="media-footer">
+              <span class="tag tag-prova">Especial NP1</span>
+              <span>⏱️ YouTube Vídeo</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="media-card">
+          <div class="media-thumb" style="background: linear-gradient(135deg, #8b5cf6 0%, #312e81 100%);">
+            <div class="play-btn" onclick="openMedia('https://www.youtube.com/embed/RBaJeN-Rmq8', 'Audio Overview NP1 - Lógica dos Recursos')">🎙️</div>
+          </div>
+          <div class="media-body">
+            <div class="media-title">7. Audio Overview NP1</div>
+            <div class="media-desc">Resumo em podcast descontraído e divertido cobrindo todos os temas da prova.</div>
+            <div class="media-footer">
+              <span class="tag tag-prova">Áudio Completo</span>
+              <span>⏱️ YouTube Vídeo</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 5: SIMULADO 40 QUESTÕES -->
+    <div id="simulado" class="tab-content">
+      <h2 style="margin-bottom: 1rem; color: #60a5fa;">📝 Simulado Completo NP1 (40 Questões Interativas)</h2>
+      <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Questões no estilo das provas anteriores e laboratórios de sala, com gabarito comentado e estatísticas em tempo real.</p>
+
+      <!-- BARRA DE ESTATÍSTICAS SIMULADO -->
+      <div class="quiz-stats-bar">
+        <div class="stat-item">
+          <div class="stat-value" id="stat-total-simulado">0 / 40</div>
+          <div class="stat-label">Respondidas</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" style="color: var(--accent-green);" id="stat-correct-simulado">0</div>
+          <div class="stat-label">Acertos</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" style="color: var(--accent-red);" id="stat-wrong-simulado">0</div>
+          <div class="stat-label">Erros</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" style="color: #38bdf8;" id="stat-percent-simulado">0%</div>
+          <div class="stat-label">Aproveitamento</div>
+        </div>
+        <div class="progress-bar-container">
+          <div class="progress-bar-fill" id="progress-fill-simulado"></div>
+        </div>
+      </div>
+
+      <!-- CONTAINER SIMULADO -->
+      <div id="simulado-container"></div>
+    </div>
+
+    <!-- TAB 6: QUESTÕES PADRÃO OAB (45 QUESTÕES FILTRADAS) -->
+    <div id="questoes_oab" class="tab-content">
+      <h2 style="margin-bottom: 1rem; color: #6ee7b7;">🎯 Questões Padrão OAB & Concursos (45 Questões Filtradas)</h2>
+      <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Seleção exclusiva das 45 questões oficiais de concursos/OAB filtradas estritamente para a matéria da NP1 da Profª Cecília.</p>
+
+      <!-- BARRA DE ESTATÍSTICAS OAB -->
+      <div class="quiz-stats-bar">
+        <div class="stat-item">
+          <div class="stat-value" id="stat-total-oab">0 / 45</div>
+          <div class="stat-label">Respondidas</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" style="color: var(--accent-green);" id="stat-correct-oab">0</div>
+          <div class="stat-label">Acertos</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" style="color: var(--accent-red);" id="stat-wrong-oab">0</div>
+          <div class="stat-label">Erros</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" style="color: #38bdf8;" id="stat-percent-oab">0%</div>
+          <div class="stat-label">Aproveitamento</div>
+        </div>
+        <div class="progress-bar-container">
+          <div class="progress-bar-fill" id="progress-fill-oab"></div>
+        </div>
+      </div>
+
+      <!-- CONTAINER OAB -->
+      <div id="oab-container"></div>
+    </div>
+
+    <!-- TAB 7: FLASHCARDS -->
+    <div id="flashcards" class="tab-content">
+      <h2 style="margin-bottom: 1.5rem; color: #c084fc;">🎴 Flashcards de Memorização Ativa</h2>
+      <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Clique no cartão para virar e conferir a resposta correta.</p>
+
+      <div class="flashcard-grid">
+        <div class="flashcard" onclick="this.classList.toggle('flipped')">
+          <div class="flashcard-inner">
+            <div class="flashcard-front">
+              <h4>O que é Sentença segundo o art. 203, § 1º do CPC?</h4>
+            </div>
+            <div class="flashcard-back">
+              <p>Pronunciamento por meio do qual o juiz, com fundamento nos arts. 485 ou 487, põe fim à fase cognitiva do procedimento comum ou extingue a execução.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flashcard" onclick="this.classList.toggle('flipped')">
+          <div class="flashcard-inner">
+            <div class="flashcard-front">
+              <h4>Qual a diferença entre Desistência da Ação e Renúncia à Pretensão?</h4>
+            </div>
+            <div class="flashcard-back">
+              <p>Desistência (art. 485, VIII) = sem mérito / terminativa. Renúncia (art. 487, III, c) = com mérito / definitiva / faz coisa julgada material.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flashcard" onclick="this.classList.toggle('flipped')">
+          <div class="flashcard-inner">
+            <div class="flashcard-front">
+              <h4>Qual o recurso contra Julgamento Antecipado Parcial do Mérito?</h4>
+            </div>
+            <div class="flashcard-back">
+              <p>Agravo de Instrumento (art. 356, § 5º e art. 1.015, II), pois é decisão interlocutória e não sentença!</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flashcard" onclick="this.classList.toggle('flipped')">
+          <div class="flashcard-inner">
+            <div class="flashcard-front">
+              <h4>Quais os 3 elementos essenciais da Sentença?</h4>
+            </div>
+            <div class="flashcard-back">
+              <p>Relatório, Fundamentação (Motivação) e Dispositivo (Conclusão) - Art. 489 do CPC.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flashcard" onclick="this.classList.toggle('flipped')">
+          <div class="flashcard-inner">
+            <div class="flashcard-front">
+              <h4>O que NÃO faz Coisa Julgada Material? (Art. 504)</h4>
+            </div>
+            <div class="flashcard-back">
+              <p>Os motivos / fundamentação da sentença e a verdade dos fatos estabelecida como fundamento.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flashcard" onclick="this.classList.toggle('flipped')">
+          <div class="flashcard-inner">
+            <div class="flashcard-front">
+              <h4>Qual o recurso cabível contra Decisão Monocrática do Relator?</h4>
+            </div>
+            <div class="flashcard-back">
+              <p>Agravo Interno (art. 1.021 do CPC), no prazo de 15 dias.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- MODAL STREAMFLIX PLAYER -->
+  <div class="modal" id="mediaModal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeMedia()">✕</button>
+      <h3 id="modalTitle" style="color: var(--text-main); margin-bottom: 0.5rem;">Player de Mídia</h3>
+      <div class="video-container">
+        <iframe id="modalIframe" src="" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>Caderno Acadêmico & Plataforma de Estudos NP1 — Sentença e Recursos em Direito Civil • Material Completo</p>
+  </footer>
+
+  <script>
+
+    // TROCA DE TABS (GLOBAL)
+    window.switchTab = function(tabId, evt) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active'));
+      
+      const targetTab = document.getElementById(tabId);
+      if (targetTab) {
+        targetTab.classList.add('active');
+      }
+
+      if (evt && evt.currentTarget) {
+        evt.currentTarget.classList.add('active');
+      } else {
+        const btn = document.querySelector(`button[onclick*="${tabId}"]`);
+        if (btn) btn.classList.add('active');
+      }
+    };
+    const switchTab = window.switchTab;
+
+const simuladoData = [
+      {
+        q: "1. (Profª Cecília / CPC) Segundo o art. 203, § 1º do CPC, conceitua-se Sentença como o pronunciamento judicial que:",
+        options: [
+          "A) Sempre põe fim definitivo a todo o processo e extingue a relação jurídica entre as partes.",
+          "B) Com fundamento nos arts. 485 ou 487, põe fim à fase cognitiva do procedimento comum ou extingue a execução.",
+          "C) Resolve qualquer questão incidental relevante no curso do processo, mantendo a cognição aberta.",
+          "D) É praticado exclusivamente pelo serventuário da justiça para dar andamento ao procedimento."
+        ],
+        correct: 1,
+        exp: "Gabarito: B. O art. 203, § 1º estabelece que a sentença é o pronunciamento que encerra a fase cognitiva do procedimento comum ou extingue a execução (fundamentado nos arts. 485 ou 487 do CPC)."
+      },
+      {
+        q: "2. (Pegadinha de Prova) O julgamento antecipado PARCIAL do mérito (art. 356 do CPC) possui natureza jurídica de:",
+        options: [
+          "A) Sentença terminativa, desafiando recurso de Apelação.",
+          "B) Sentença definitiva, desafiando recurso de Apelação.",
+          "C) Decisão interlocutória de mérito, impugnável por Agravo de Instrumento.",
+          "D) Despacho de mero expediente, sendo irrecorrível."
+        ],
+        correct: 2,
+        exp: "Gabarito: C. O julgamento antecipado parcial do mérito decide apenas uma parcela do pedido sem encerrar a fase cognitiva. Trata-se de decisão interlocutória impugnável por Agravo de Instrumento (arts. 356, § 5º e 1.015, II)."
+      },
+      {
+        q: "3. O reconhecimento da prescrição ou da decadência pelo juiz (art. 487, II do CPC) gera que tipo de sentença?",
+        options: [
+          "A) Sentença terminativa sem resolução de mérito, permitindo nova propositura.",
+          "B) Sentença definitiva com resolução de mérito, produzindo coisa julgada material.",
+          "C) Decisão interlocutória processual de mero saneamento.",
+          "D) Ato ordinatório irrecorrível."
+        ],
+        correct: 1,
+        exp: "Gabarito: B. Nos termos do art. 487, II do CPC, pronunciar-se sobre prescrição ou decadência resolve o mérito da causa, gerando sentença definitiva apta à coisa julgada material."
+      },
+      {
+        q: "4. (Questão Discursiva/Objetiva) Sobre a diferença entre Desistência da Ação e Renúncia à Pretensão, assinale a correta:",
+        options: [
+          "A) Ambas geram sentença terminativa e permitem a repropositura da ação.",
+          "B) A desistência resolve o mérito; a renúncia extingue o processo sem resolução de mérito.",
+          "C) A desistência (art. 485, VIII) não resolve o mérito; a renúncia (art. 487, III, 'c') resolve o mérito e impede repetir a ação.",
+          "D) Após a contestação, a desistência da ação prescinde do consentimento do réu."
+        ],
+        correct: 2,
+        exp: "Gabarito: C. A desistência recai sobre a ação (terminativa / sem mérito / coisa julgada formal); a renúncia recai sobre o próprio direito material (definitiva / com mérito / coisa julgada material)."
+      },
+      {
+        q: "5. Pela literalidade do art. 203, caput do CPC, os pronunciamentos do juiz consistem em:",
+        options: [
+          "A) Sentença, decisão interlocutória, despacho e ato ordinatório.",
+          "B) Sentenças, decisões interlocutórias e despachos.",
+          "C) Sentenças e acórdãos apenas.",
+          "D) Despacho e certidão de juntada."
+        ],
+        correct: 1,
+        exp: "Gabarito: B. O caput do art. 203 lista três pronunciamentos do juiz: sentenças, decisões interlocutórias e despachos. O ato ordinatório é praticado pelo servidor (§ 4º)."
+      },
+      {
+        q: "6. Quanto à estrutura da sentença no Juizado Especial Cível (Lei nº 9.099/95, art. 38):",
+        options: [
+          "A) Relatório, fundamentação e dispositivo são totalmente dispensados.",
+          "B) A fundamentação é dispensada devido ao princípio da oralidade.",
+          "C) O relatório é dispensado, mas exige-se breve resumo dos fatos e fundamentação.",
+          "D) Exige-se relatório pormenorizado sob pena de nulidade absoluta."
+        ],
+        correct: 2,
+        exp: "Gabarito: C. O art. 38 da Lei nº 9.099/95 dispensa expressamente o relatório na sentença dos Juizados Especiais, mantendo os elementos de convicção e o dispositivo."
+      },
+      {
+        q: "7. A decisão judicial que apenas limita-se a reproduzir enunciado de súmula sem demonstrar sua relação com o caso concreto (art. 489, § 1º, V):",
+        options: [
+          "A) É considerada fundamentada por presunção legal.",
+          "B) Não se considera fundamentada, padecendo de nulidade.",
+          "C) É mero despacho irrecorrível.",
+          "D) Gera coisa julgada formal automática."
+        ],
+        correct: 1,
+        exp: "Gabarito: B. O art. 489, § 1º, V do CPC estabelece que não se considera fundamentada a decisão que apenas invoca súmula ou procedente sem identificar seus fundamentos determinantes e a aderência ao caso."
+      },
+      {
+        q: "8. As decisões interlocutórias que não comportam Agravo de Instrumento imediato por não estarem no rol do art. 1.015 do CPC:",
+        options: [
+          "A) Precluem imediatamente se não impugnadas em 15 dias.",
+          "B) Devem ser atacadas por mandado de segurança obrigatório.",
+          "C) Não precluem e devem ser suscitadas em preliminar de Apelação ou nas contrarrazões.",
+          "D) Convertem-se em despachos irrecorríveis."
+        ],
+        correct: 2,
+        exp: "Gabarito: C. Conforme o art. 1.009, § 1º do CPC, as interlocutórias não sujeitas a agravo imediato não precluem e devem ser suscitadas na preliminar de apelação ou nas contrarrazões."
+      },
+      {
+        q: "9. Sobre a repropositura da ação após sentença sem resolução de mérito (art. 486 do CPC):",
+        options: [
+          "A) É sempre livre e sem qualquer condicionante.",
+          "B) É proibida em todos os casos por força da coisa julgada material.",
+          "C) É em tese possível, mas exige a correção do vício que a motivou e o pagamento/depósito das custas e honorários.",
+          "D) Só é permitida mediante ajuizamento de ação rescisória."
+        ],
+        correct: 2,
+        exp: "Gabarito: C. A sentença terminativa produz coisa julgada formal, permitindo nova propositura desde que corrigido o vício e pagas/depositadas as custas e honorários da ação anterior (art. 486, §§ 1º e 2º)."
+      },
+      {
+        q: "10. Se o juiz decide acolher um dos pedidos incontroversos e permite sua execução imediata, prosseguindo o processo quanto aos demais pedidos:",
+        options: [
+          "A) Proferiu sentença definitiva, cabendo apelação.",
+          "B) Proferiu decisão interlocutória de mérito (art. 356), cabendo agravo de instrumento.",
+          "C) Encerrou integralmente a fase cognitiva.",
+          "D) Praticou ato ordinatório sem conteúdo decisório."
+        ],
+        correct: 1,
+        exp: "Gabarito: B. Trata-se de julgamento antecipado parcial do mérito (art. 356). Tem natureza de decisão interlocutória, permitindo execução definitiva/provisória imediata e impugnação por agravo de instrumento."
+      },
+      {
+        q: "11. Quando a sentença apresenta evidente contradição interna entre a fundamentação e o dispositivo, o recurso vocacionado para sanar tal vício é:",
+        options: [
+          "A) Agravo de Instrumento.",
+          "B) Embargos de Declaração (art. 1.022, I).",
+          "C) Agravo Interno.",
+          "D) Reclamação Constitucional."
+        ],
+        correct: 1,
+        exp: "Gabarito: B. Os Embargos de Declaração cabem contra qualquer decisão para esclarecer obscuridade, eliminar contradição, suprir omissão ou corrigir erro material (art. 1.022 do CPC)."
+      },
+      {
+        q: "12. Na classificação quinária das sentenças (Pontes de Miranda), acrescem-se à Teoria Ternária de Liebman (Declaratória, Constitutiva, Condenatória) as tutelas:",
+        options: [
+          "A) Executiva probatória e cautelar.",
+          "B) Anulatória e rescisória.",
+          "C) Mandamental e Executiva lato sensu.",
+          "D) Incidental e declaratória inversa."
+        ],
+        correct: 2,
+        exp: "Gabarito: C. A Teoria Quinária de Pontes de Miranda adiciona a eficácia Mandamental (ordem) e a Executiva lato sensu (satisfação no próprio processo, ex: reintegração de posse)."
+      },
+      {
+        q: "13. A improcedência liminar do pedido (art. 332 do CPC):",
+        options: [
+          "A) Exige prévia citação do réu para contestar.",
+          "B) Permite julgar liminarmente improcedente o pedido que contrariar súmula do STF/STJ ou procedente repetitivo antes da citação do réu.",
+          "C) É sentença terminativa que não analisa o mérito.",
+          "D) É decisão interlocutória não sujeita a apelação."
+        ],
+        correct: 1,
+        exp: "Gabarito: B. A improcedência liminar do pedido rejeita o mérito antes da citação quando o pedido contraria precedentes/súmulas ou quando reconhecida de plano a prescrição/decadência. Trata-se de sentença definitiva cabendo Apelação."
+      },
+      {
+        q: "14. Sobre a recorribilidade das decisões interlocutórias e o Tema 988 do STJ (Taxatividade Mitigada):",
+        options: [
+          "A) O rol do art. 1.015 do CPC é meramente exemplificativo para qualquer situação.",
+          "B) O rol é absolutamente taxativo e nunca admite exceções.",
+          "C) O rol possui taxatividade mitigada quando demonstrada a urgência decorrente da inutilidade do julgamento da questão em futura apelação.",
+          "D) A mitigaçâo transforma todas as interlocutórias em sentenças."
+        ],
+        correct: 2,
+        exp: "Gabarito: C. A tese fixada no Tema 988/STJ estabelece que o rol do art. 1.015 é de taxatividade mitigada, admitindo Agravo de Instrumento quando verificada a urgência pela inutilidade do julgamento futuro na apelação."
+      },
+      {
+        q: "15. A decisão que concede medida liminar ou tutela provisória de urgência sem ouvir a parte contrária:",
+        options: [
+          "A) Faz coisa julgada material imediata.",
+          "B) NÃO faz coisa julgada material, pois decorre de cognição sumária e tem caráter provisório.",
+          "C) Torna-se imutável após 15 dias sem recurso.",
+          "D) Equivale a uma sentença definitiva."
+        ],
+        correct: 1,
+        exp: "Gabarito: B. As tutelas provisórias decorrem de cognição sumária/superficial e não estão aptas a produzir coisa julgada material, podendo ser revogadas ou modificadas a qualquer tempo."
+      },
+      {
+        q: "16. A autoridade da coisa julgada material (art. 502 do CPC) diferencia-se do trânsito em julgado porque:",
+        options: [
+          "A) Trânsito em julgado é o fato processual de encerramento dos recursos; coisa julgada material é a autoridade de imutabilidade que qualifica a decisão de mérito.",
+          "B) Trânsito em julgado só ocorre em decisões terminativas.",
+          "C) Coisa julgada material independe de mérito.",
+          "D) Ambos são sinônimos perfeitos na doutrina."
+        ],
+        correct: 0,
+        exp: "Gabarito: A. Toda coisa julgada material pressupõe trânsito em julgado, mas nem todo trânsito gera coisa julgada material (ex: sentença terminativa transita, mas só produz coisa julgada formal)."
+      },
+      {
+        q: "17. Nos termos do art. 504 do CPC, a autoridade da coisa julgada material recai sobre:",
+        options: [
+          "A) A verdade dos fatos estabelecida como fundamento da sentença.",
+          "B) A questão principal expressamente decidida no dispositivo.",
+          "C) Os motivos da sentença, ainda que determinantes.",
+          "D) As alegações fáticas não contestadas."
+        ],
+        correct: 1,
+        exp: "Gabarito: B. A coisa julgada material recai unicamente sobre o dispositivo (questão principal decidida). O art. 504 exclui expressamente os motivos e a verdade dos fatos da coisa julgada."
+      },
+      {
+        q: "18. Para que a resolução de uma QUESTÃO PREJUDICIAL incidental adquira autoridade de coisa julgada (art. 503, § 1º), NÃO é requisito legal:",
+        options: [
+          "A) Dependência do julgamento do mérito.",
+          "B) Contraditório prévio e efetivo (sem revelia).",
+          "C) Competência do juízo em razão da matéria e da pessoa.",
+          "D) Pedido autônomo formulado obrigatoriamente por meio de ação declaratória incidental."
+        ],
+        correct: 3,
+        exp: "Gabarito: D. O CPC/15 extinguiu a ação declaratória incidental. A questão prejudicial decidida expressamente na fundamentação faz coisa julgada independentemente de pedido autônomo, desde que preenchidos os 4 requisitos do art. 503, § 1º."
+      },
+      {
+        q: "19. O Princípio do Duplo Grau de Jurisdição:",
+        options: [
+          "A) É garantia expressa em artigo específico da CF com este exato nome.",
+          "B) É princípio constitucional implícito, inferido da estrutura de tribunais e competências recursais da CF.",
+          "C) Garante a interposição de recursos ilimitados contra toda e qualquer decisão.",
+          "D) Obriga a parte vencida a recorrer antes do cumprimento."
+        ],
+        correct: 1,
+        exp: "Gabarito: B. O duplo grau de jurisdição é princípio constitucional implícito (decorrente do devido processo legal e contraditório - art. 5º, LV, CF). Não é absoluto e depende de previsão legal de cabimento."
+      },
+      {
+        q: "20. O Princípio da Taxatividade dos Recursos (art. 994 do CPC) significa que:",
+        options: [
+          "A) A parte pode criar recursos por analogia ou criatividade profissional.",
+          "B) Os tribunais podem inventar novos recursos por regimento interno.",
+          "C) As espécies recursais formam rol fechado (numerus clausus) previsto estritamente em lei federal.",
+          "D) O CPC/15 manteve o agravo retido como recurso taxativo."
+        ],
+        correct: 2,
+        exp: "Gabarito: C. Pela taxatividade, só são recursos os instrumentos qualificados como tal pela lei federal (CPC, art. 994). O rol de espécies recursais é fechado."
+      },
+      {
+        q: "21. O Princípio da Singularidade (ou Unirrecorribilidade):",
+        options: [
+          "A) Permite interpor Apelação e Agravo de Instrumento simultaneamente contra a mesma sentença.",
+          "B) Estabelece que contra cada espécie de decisão cabe, em regra, apenas um recurso adequado.",
+          "C) Veda a oposição de Embargos de Declaração.",
+          "D) É idêntico ao princípio da fungibilidade."
+        ],
+        correct: 1,
+        exp: "Gabarito: B. Pela singularidade/unirrecorribilidade, para cada decisão judicial existe apenas um recurso adequado no sistema processual."
+      },
+      {
+        q: "22. Viola o Princípio da Dialeticidade Recursal (art. 1.010, III e art. 932, III) o recurso que:",
+        options: [
+          "A) Formula pedido de anulação por falta de fundamentação.",
+          "B) Apresenta contrarrazões no prazo de 15 dias.",
+          "C) Copia ipsis litteris a petição anterior sem impugnar especificamente os fundamentos da decisão recorrida.",
+          "D) Requer a reforma do julgamento de mérito."
+        ],
+        correct: 2,
+        exp: "Gabarito: C. A dialeticidade exige que o recorrente confronte diretamente os fundamentos da decisão atacada. A cópia genérica sem impugnação específica impede o conhecimento do recurso (art. 932, III)."
+      },
+      {
+        q: "23. Pelo Princípio da Proibição da Reformatio in Pejus:",
+        options: [
+          "A) O tribunal pode piorar a condenação do único recorrente a qualquer momento.",
+          "B) Sendo o recurso exclusivo de uma das partes, o tribunal não pode agravar sua situação jurídico-processual.",
+          "C) Se ambas as partes recorrerem, o tribunal está impedido de alterar a sentença.",
+          "D) Matérias de ordem pública não podem ser conhecidas pelo tribunal."
+        ],
+        correct: 1,
+        exp: "Gabarito: B. Na ausência de recurso da parte contrária, o julgamento do recurso exclusivo não pode piorar a situação do recorrente (salvo matérias de ordem pública cognoscíveis de ofício)."
+      },
+      {
+        q: "24. Sobre a Fungibilidade Recursal entre Recurso Especial (STJ) e Recurso Extraordinário (STF) no CPC (arts. 1.032 e 1.033):",
+        options: [
+          "A) É proibida em qualquer hipótese.",
+          "B) O STJ pode remeter ao STF o REsp que versar sobre questão constitucional; e o STF remete ao STJ o RE se a ofensa for reflexa.",
+          "C) A fungibilidade permite interpor agravo interno no lugar de apelação sem sanar o vício.",
+          "D) Transforma o REsp em ação rescisória."
+        ],
+        correct: 1,
+        exp: "Gabarito: B. Os arts. 1.032 e 1.033 do CPC positivaram a fungibilidade entre RE e REsp perante os Tribunais Superiores, concedendo prazo para adaptação."
+      },
+      {
+        q: "25. Em virtude do Princípio da Voluntariedade, o recorrente pode desistir do recurso já interposto (art. 998):",
+        options: [
+          "A) Somente com a concordância do recorrido.",
+          "B) Apenas se houver anuência dos litisconsortes.",
+          "C) A qualquer tempo, sem a anuência do recorrido ou dos litisconsortes.",
+          "D) Apenas antes do oferecimento de contestação."
+        ],
+        correct: 2,
+        exp: "Gabarito: C. O art. 998 estabelece que o recorrente pode desistir do recurso a qualquer tempo, independentemente de anuência do recorrido ou litisconsortes."
+      },
+      {
+        q: "26. A regra da Consumação Recursal e a exceção da Complementaridade (art. 1.024, § 4º) indicam que:",
+        options: [
+          "A) A parte pode aditar livremente seu recurso enquanto restarem dias no prazo.",
+          "B) Protocolado o recurso, opera-se a preclusão consumativa; mas se a decisão for alterada por Embargos de Declaração, permite-se complementar as razões nos limites da modificação.",
+          "C) Embargos de declaração não interrompem o prazo recursal.",
+          "D) A complementaridade autoriza inventar novas teses não relacionadas aos embargos."
+        ],
+        correct: 1,
+        exp: "Gabarito: B. A interposição consome a faculdade processual (consumação). Se houver modificação superveniente da decisão por ED, o recorrente tem direito de complementar o recurso nos exatos limites da mudança (art. 1.024, § 4º)."
+      },
+      {
+        q: "27. O Princípio da Primazia do Julgamento de Mérito (art. 4º e art. 932, parágrafo único do CPC) determina que:",
+        options: [
+          "A) Antes de considerar inadmissível o recurso por vício sanável, o relator concederá prazo de 5 dias para correção ou complementação.",
+          "B) Qualquer recurso intempestivo deve ser conhecido de ofício.",
+          "C) Erros insanáveis devem ser ignorados pelos tribunais.",
+          "D) Sentenças terminativas não admitem recurso de apelação."
+        ],
+        correct: 0,
+        exp: "Gabarito: A. O art. 932, parágrafo único do CPC concretiza a primazia do mérito, exigindo intimação prévia de 5 dias para sanar vícios formais ou complementar documentos antes de inadmitir o recurso."
+      },
+      {
+        q: "28. No exame dos recursos pelo Tribunal, a distinção entre Juízo de Admissibilidade e Juízo de Mérito expressa-se nos seguintes vocabulários:",
+        options: [
+          "A) Admissibilidade = Prover ou Desprover; Mérito = Conhecer ou Não Conhecer.",
+          "B) Admissibilidade = Procedente ou Improcedente; Mérito = Válido ou Nulo.",
+          "C) Admissibilidade = Conhecer ou Não Conhecer; Mérito = Dar Provimento ou Negar Provimento.",
+          "D) Admissibilidade = Anular ou Reformar; Mérito = Homologar ou Cassar."
+        ],
+        correct: 2,
+        exp: "Gabarito: C. O juízo de admissibilidade (filtro formal) resulta em CONHECER ou NÃO CONHECER. Superado a admissibilidade, o juízo de mérito resulta em DAR PROVIMENTO ou NEGAR PROVIMENTO."
+      },
+      {
+        q: "29. Ocorrendo ERROR IN PROCEDENDO (vício de forma/procedimento) na sentença, o pedido do recurso de Apelação deve ser de:",
+        options: [
+          "A) Reforma do julgado.",
+          "B) Anulação / Invalidação / Decretação de Nulidade da sentença.",
+          "C) Desistência homologatória.",
+          "D) Modificação do valor da causa exclusivamente."
+        ],
+        correct: 1,
+        exp: "Gabarito: B. Vícios na atividade procedimental (error in procedendo, ex: falta de fundamentação ou cerceamento de defesa) geram pedido de ANULAÇÃO/INVALIDAÇÃO. Vícios de conteúdo (error in judicando) geram pedido de REFORMA."
+      },
+      {
+        q: "30. Quanto aos EFEITOS do recurso de Apelação (art. 1.012 do CPC):",
+        options: [
+          "A) A apelação nunca possui efeito suspensivo em hipótese alguma.",
+          "B) Todos os recursos no CPC possuem efeito suspensivo automático.",
+          "C) A apelação não devolve matéria alguma ao tribunal.",
+          "D) A apelação tem, em regra, efeito suspensivo, começar a produzir efeitos imediatamente nas exceções do art. 1.012, § 1º (ex: alimentos, tutela provisória)."
+        ],
+        correct: 3,
+        exp: "Gabarito: D. A regra geral da Apelação é o efeito suspensivo (art. 1.012, caput). As exceções do § 1º (alimentos, confirmação/concessão/revogação de tutela, embargos improcedentes) produzem efeitos imediatos."
+      },
+      {
+        q: "31. Nas hipóteses em que a apelação não tem efeito suspensivo automático (art. 1.012, § 1º), o Relator poderá conceder efeito suspensivo se demonstrados (art. 1.012, § 4º):",
+        options: [
+          "A) Probabilidade de provimento do recurso OU fundamentação relevante acompanhada de risco de dano grave.",
+          "B) Depósito prévio de 50% do valor da condenação.",
+          "C) Concordância expressa da parte contrária.",
+          "D) Ajuizamento de ação rescisória prévia."
+        ],
+        correct: 0,
+        exp: "Gabarito: A. O art. 1.012, § 4º prevê que o relator pode atribuir efeito suspensivo se o apelante demonstrar a probabilidade de provimento do recurso OU se houver fundamentação relevante e risco de dano grave ou de difícil reparação."
+      },
+      {
+        q: "32. O Efeito Regressivo (ou Juízo de Retratação) na Apelação é admitido expressamente quando a sentença for proferida com base em:",
+        options: [
+          "A) Acolhimento integral do pedido inicial.",
+          "B) Homologação de transação.",
+          "C) Extinção sem resolução do mérito (art. 485, § 7º) ou Improcedência Liminar do Pedido (art. 332, § 3º).",
+          "D) Procedência de ação de cobrança por prova documental."
+        ],
+        correct: 2,
+        exp: "Gabarito: C. O juiz de 1º grau pode exercer o juízo de retratação (efeito regressivo) no prazo de 5 dias em caso de apelação contra sentença do art. 485 (sem mérito) ou do art. 332 (improcedência liminar)."
+      },
+      {
+        q: "33. O Efeito Translativo dos recursos permite ao Tribunal:",
+        options: [
+          "A) Apreciar matérias de ordem pública de ofício (ex: condições da ação, pressupostos), independentemente de provocação expressa das partes.",
+          "B) Transferir o julgamento para a Justiça Federal automaticamente.",
+          "C) Piorar a condenação do único recorrente.",
+          "D) Criar provas fáticas não constantes dos autos."
+        ],
+        correct: 0,
+        exp: "Gabarito: A. Pelo efeito translativo, matérias de ordem pública (cognoscíveis de ofício) são transferidas ao exame do Tribunal, não estando limitadas estritamente ao pedido do recurso."
+      },
+      {
+        q: "34. Cabe Agravo de Instrumento contra decisão interlocutória que versar sobre (art. 1.015 do CPC):",
+        options: [
+          "A) Tutelas provisórias, mérito do processo, rejeição de convenção de arbitragem, e incidente de desconsideração da personalidade jurídica.",
+          "B) Simples indeferimento de juntada de cópia de RG.",
+          "C) Despacho que determina vista às partes.",
+          "D) Sentença de extinção do processo."
+        ],
+        correct: 0,
+        exp: "Gabarito: A. O art. 1.015 reúne as hipóteses de cabimento do Agravo de Instrumento, como tutelas provisórias (inciso I), mérito parcial (inciso II), convenção de arbitragem (inciso III), IDPJ (inciso IV), etc."
+      },
+      {
+        q: "35. Das decisões monocráticas proferidas pelo Relator no Tribunal com base no art. 932 do CPC, cabe qual recurso para o órgão colegiado?",
+        options: [
+          "A) Agravo Interno (art. 1.021).",
+          "B) Apelação adesiva.",
+          "C) Embargos infratores.",
+          "D) Agravo de Instrumento."
+        ],
+        correct: 0,
+        exp: "Gabarito: A. O recurso adequado contra qualquer decisão monocrática proferida por relator é o Agravo Interno (art. 1.021 do CPC), dirigido ao órgão colegiado."
+      },
+      {
+        q: "36. Sobre os Embargos de Declaração (arts. 1.022 a 1.026 do CPC):",
+        options: [
+          "A) Exigem recolhimento de preparo e têm prazo de 15 dias.",
+          "B) Não sujeitam a preparo, têm prazo de 5 dias e interrompem o prazo para interposição de outros recursos.",
+          "C) Suspendem automaticamente a eficácia de qualquer sentença.",
+          "D) Não cabem contra decisão interlocutória."
+        ],
+        correct: 1,
+        exp: "Gabarito: B. Os Embargos de Declaração têm prazo de 5 dias, independem de preparo, cabem contra QUALQUER decisão judicial (inclusive interlocutória) e INTERROMPEM o prazo recursal (art. 1.026)."
+      },
+      {
+        q: "37. Na interposição do recurso de Apelação perante o juízo de 1º grau:",
+        options: [
+          "A) O juiz de 1º grau NÃO realiza mais o juízo de admissibilidade, remetendo os autos ao Tribunal após as contrarrazões (art. 1.010, § 3º).",
+          "B) O juiz de 1º grau pode indeferir a apelação por intempestividade ou falta de preparo antes de subir.",
+          "C) O recurso deve ser interposto diretamente no STJ.",
+          "D) Exige-se sustentação oral prévia em 1º grau."
+        ],
+        correct: 0,
+        exp: "Gabarito: A. O CPC/15 extinguiu o juízo de admissibilidade da Apelação no 1º grau. O juiz a quo apenas intima o apelado para contrarrazões e remete os autos ao Tribunal (art. 1.010, § 3º)."
+      },
+      {
+        q: "38. Se a petição de Apelação vier desacompanhada da comprovação do PREPARO no ato de interposição (art. 1.007, § 4º):",
+        options: [
+          "A) Haverá deserção sumária e automática sem oportunidade de sanar.",
+          "B) O recorrente será intimado na pessoa de seu advogado para realizar o recolhimento em DOBRO, sob pena de deserção.",
+          "C) O relator concederá desconto de 50% na taxa.",
+          "D) A apelação será convertida em agravo retido."
+        ],
+        correct: 1,
+        exp: "Gabarito: B. Quando totalmente ausente a comprovação do preparo no ato da interposição, o recorrente será intimado para recolher em DOBRO no prazo de 5 dias, sob pena de deserção (art. 1.007, § 4º). Se for apenas insuficiente, paga-se o complemento simples (§ 2º)."
+      },
+      {
+        q: "39. Ocorre a PEREMPÇÃO (art. 485, V e § 3º do CPC) quando:",
+        options: [
+          "A) O réu deixa de contestar a ação no prazo legal.",
+          "B) O autor falta à audiência de conciliação.",
+          "C) O autor dá causa por 3 vezes à extinção do processo por abandono (art. 485, III), ficando impedido de propor nova ação contra o mesmo réu com o mesmo objeto.",
+          "D) O autor renuncia ao direito material."
+        ],
+        correct: 2,
+        exp: "Gabarito: C. Perempção é a perda do direito de ação sobre o mesmo objeto contra o mesmo réu após dar causa por 3 vezes à extinção do processo por abandono da causa (art. 486, § 3º do CPC)."
+      },
+      {
+        q: "40. (Síntese da Prova) Se um processo envolve dois pedidos de indenização e o juiz decide imediatamente o primeiro pedido por estar maduro, mandando realizar perícia sobre o segundo:",
+        options: [
+          "A) Proferiu decisão interlocutória de mérito (art. 356), desafiando Agravo de Instrumento.",
+          "B) Proferiu sentença definitiva (art. 355), desafiando Apelação.",
+          "C) Proferiu despacho ordinatório irrecorrível.",
+          "D) Extinguiu o processo sem resolução de mérito."
+        ],
+        correct: 0,
+        exp: "Gabarito: A. Trata-se do clássico julgamento antecipado parcial do mérito (art. 356). É decisão interlocutória impugnável por Agravo de Instrumento (art. 356, § 5º)."
+      }
+    ];
+
+    // DADOS DAS 45 QUESTÕES OAB FILTRADAS;
+
+const oabData = [
+      {"id": 1, "title": "Questão 101 — Instituto Consulplan (2025)", "source": "Câmara de Mariana - Advogado - 2025", "text": "Ana e Bruno ajuizaram, conjuntamente, uma ação de indenização por danos materiais contra uma construtora, devido a vícios estruturais em um imóvel recém-adquirido. O juiz proferiu sentença julgando parcialmente procedente o pedido, condenando a construtora ao pagamento de indenização apenas a Ana, sob o fundamento de que Bruno não apresentou provas suficientes do prejuízo. Bruno, inconformado, pretende recorrer da decisão. No entanto, antes de interpor seu recurso, ele percebe que a sentença não analisou um argumento fundamental de sua defesa, configurando uma omissão relevante. Já Ana, satisfeita com a decisão que lhe favoreceu, não pretende recorrer. Diante dessa situação, Bruno deseja tomar as medidas cabíveis para corrigir a omissão e garantir sua possibilidade de recorrer. Considerando a situação hipotética apresentada e as disposições do Código de Processo Civil brasileiro, assinale a afirmativa correta.", "options": ["A) Bruno não pode opor embargos de declaração, pois, uma vez que Ana não pretende recorrer, ele deve diretamente interpor recurso de apelação, sob pena de preclusão.", "B) Os embargos de declaração opostos por Bruno interrompem o prazo para a apelação tanto para ele quanto para Ana, ainda que ela esteja satisfeita com a decisão e não tenha interesse em recorrer.", "C) Os embargos de declaração opostos por Bruno interrompem o prazo para a apelação apenas para ele, sem impactar Ana, que pode optar por interpor seu recurso independentemente da manifestação de Bruno.", "D) Bruno deve opor embargos de declaração para suprir a omissão na sentença, interrompendo o prazo para a interposição do recurso de apelação, mas essa interrupção não afeta Ana, que poderá executar a decisão normalmente, inclusive se a construtora interpor apelação."], "correct": 1, "exp": "Gabarito: B. Conforme o art. 1.026, caput, do CPC, os embargos de declaração interrompem o prazo para a interposição de outros recursos para AMBAS as partes (recorrente e recorrido), independentemente de quem os tenha oposto."},
+      {"id": 2, "title": "Questão 102 — Legalle Concursos (2025)", "source": "Prefeitura de Capão do Cipó - Procurador Jurídico - 2025", "text": "O Código de Processo Civil determina que cabem embargos de declaração contra qualquer decisão judicial. Sobre os embargos de declaração, assinale a alternativa CORRETA.", "options": ["A) Os embargos de declaração possuem efeito suspensivo automático.", "B) Os embargos de declaração não possuem efeito suspensivo automático e interrompem o prazo para a interposição de recurso.", "C) Considera-se omissa apenas a decisão que deixe de se manifestar sobre tese firmada em julgamento de casos repetitivos.", "D) Os embargos serão opostos, no prazo de 5 (cinco) dias, em petição dirigida ao juiz, e se sujeitam a preparo."], "correct": 1, "exp": "Gabarito: B. Segundo o art. 1.026 do CPC, os embargos de declaração não possuem efeito suspensivo automático, independem de preparo e interrompem o prazo para a interposição de outros recursos."},
+      {"id": 3, "title": "Questão 105 — IBFC (2025)", "source": "TJ PE - Técnico Judiciário - Área Judiciária - 2025", "text": "A respeito do recurso de apelação, assinale a alternativa correta.", "options": ["A) As decisões judiciais proferidas anteriormente à sentença, quando não comportarem agravo de instrumento, são cobertas pela preclusão e não podem ser suscitadas em apelação.", "B) Quando o pedido ou a defesa contiver mais de um fundamento e o juiz acolher apenas um deles, o recurso de apelação devolverá ao tribunal somente o conhecimento deste.", "C) As questões de fato que não tenham sido propostas no juízo inferior poderão ser suscitadas no recurso de apelação caso a parte prove que deixou de fazê-lo por motivo de força maior.", "D) A apelação será interposta por petição dirigida diretamente ao tribunal competente, dispensando encaminhamento ao juízo de primeiro grau."], "correct": 2, "exp": "Gabarito: C. O art. 1.014 do CPC expressamente dispõe que 'as questões de fato, não propostas no juízo inferior, poderão ser suscitadas na apelação, se a parte provar que deixou de fazê-lo por motivo de força maior'."},
+      {"id": 4, "title": "Questão 106 — FGV (2025)", "source": "ALE AM - Procurador - 2025", "text": "Em ação de reintegração de posse, em curso perante a 10ª Vara Cível da Comarca de Maceió/AL, o juiz indeferiu a medida liminar requerida pelo autor. Esse, por sua vez, quer impugnar imediatamente a decisão, visando a obter a sua reforma. Em tal caso, a via adequada para a insurgência é:", "options": ["A) A interposição de agravo interno.", "B) A propositura de reclamação perante o Tribunal de Justiça.", "C) A interposição de agravo de instrumento.", "D) A impetração de mandado de segurança."], "correct": 2, "exp": "Gabarito: C. Nos termos do art. 1.015, I, do CPC, cabe Agravo de Instrumento contra decisões interlocutórias que versarem sobre tutelas provisórias (o que inclui as liminares possessórias)."},
+      {"id": 5, "title": "Questão 108 — Instituto Quadrix (2025)", "source": "CRF MS - Advogado - 2025", "text": "Considere-se a assertiva a seguir: 'O recorrente tem o dever de fundamentar o recurso no ato de interposição, apresentando as razões fáticas e jurídicas que justificam o pedido de reexame da decisão recorrida.' No que se refere ao Sistema Recursal do Processo Civil, assinale a opção que apresenta o princípio expresso na assertiva supracitada.", "options": ["A) Princípio da dialeticidade", "B) Princípio da singularidade", "C) Princípio da taxatividade", "D) Princípio do duplo grau de jurisdição"], "correct": 0, "exp": "Gabarito: A. Pelo Princípio da Dialeticidade, o recurso deve demonstrar formalmente o inconformismo, atacando especificamente os fundamentos da decisão recorrida (arts. 1.010, III e 932, III do CPC)."},
+      {"id": 6, "title": "Questão 110 — Instituto IBEST (2025)", "source": "CRMV ES - Advogado - 2025", "text": "O artigo 1.024, § 3º, do Código de Processo Civil de 2015, estabelece que 'o órgão julgador conhecerá dos embargos de declaração como agravo interno se entender ser este o recurso cabível, desde que determine previamente a intimação do recorrente para, no prazo de 5 (cinco) dias, complementar as razões recursais, de modo a ajustá-las às exigências do art. 1.021, § 1º'. A hipótese prevista nesse dispositivo reflete a aplicação do princípio do(da):", "options": ["A) Duplo grau de jurisdição.", "B) Fungibilidade.", "C) Consumação.", "D) Singularidade."], "correct": 1, "exp": "Gabarito: B. O aproveitamento de Embargos de Declaração opostos contra decisão monocrática com pedido de reforma de mérito como Agravo Interno representa a aplicação explícita do Princípio da Fungibilidade Recursal (art. 1.024, § 3º do CPC)."},
+      {"id": 7, "title": "Questão 113 — Unochapecó (2025)", "source": "Prefeitura de Maravilha - Advogado do CREAS - 2025", "text": "Durante ação contra o CREAS para concessão de benefício eventual, o juiz proferiu sentença condenatória. O advogado da instituição deseja recorrer. Analise as assertivas:\nI. O recurso cabível contra sentença é a apelação.\nII. A Fazenda Pública tem prazo em dobro para recorrer.\nIII. O recurso deve ser interposto diretamente no tribunal.\nAssinale a alternativa correta.", "options": ["A) Apenas I está correta.", "B) Apenas II e III estão corretas.", "C) Apenas I e II estão corretas.", "D) I, II e III estão corretas."], "correct": 2, "exp": "Gabarito: C. As assertivas I e II estão corretas (art. 1.009 e art. 183 do CPC). A assertiva III está incorreta porque a Apelação é interposta perante o juízo de primeiro grau (art. 1.010, caput) e não diretamente no tribunal."},
+      {"id": 8, "title": "Questão 114 — IMPARH (2025)", "source": "CGM CE - Auditor de Controle Interno - 2025", "text": "Os recursos são meios idôneos para atender o exercício de inconformismo da parte, e eventualmente de terceiros interessados, quanto às decisões que lhes são desfavoráveis. Sobre os recursos, marque a opção correta.", "options": ["A) O pedido de reconsideração é uma espécie recursal expressamente prevista no rol do Código de Processo Civil.", "B) O sistema processual brasileiro assegura a recorribilidade das decisões, atendendo ao princípio da taxatividade e da unicidade (singularidade) dos recursos.", "C) Contra sentença é cabível agravo de instrumento.", "D) Os recursos impedem sempre a eficácia da decisão, ficando o juiz proibido de conceder execução provisória."], "correct": 1, "exp": "Gabarito: B. O sistema recursal pauta-se pela taxatividade (rol legal fechado do art. 994) e unicidade/singularidade (para cada ato decisório cabe em regra apenas um recurso adequado)."},
+      {"id": 9, "title": "Questão 118 — IDCAP (2025)", "source": "Pré-Sal Petróleo S.A - Advogado - 2025", "text": "Foi publicada sentença judicial de primeiro grau julgando procedente ação de natureza condenatória. A Ré, condenada, apresentou Embargos de Declaração para esclarecer obscuridade. O patrono da Ré, 1 (um) dia após apresentar os Embargos de Declaração, verificou que a peça processual foi apresentada intempestivamente (fora do prazo de 5 dias do art. 1023 do CPC). Diante dessa situação e considerando o sistema recursal, identifique a assertiva correta.", "options": ["A) Os embargos de declaração intempestivos não interrompem o prazo recursal; assim, o patrono da Ré deve apresentar a Apelação dentro do prazo remanescente contado da intimação da sentença de mérito.", "B) Os embargos de declaração, mesmo intempestivos, interrompem o prazo recursal para a apelação até o julgamento pelo juiz.", "C) O patrono da Ré deverá apresentar Recurso de Agravo de Instrumento no prazo de 15 dias contra os embargos intempestivos.", "D) A única medida possível após a intempestividade dos embargos de declaração será o ajuizamento de Ação Rescisória."], "correct": 0, "exp": "Gabarito: A. Consoante jurisprudência pacífica do STJ e do STF, Embargos de Declaração intempestivos NÃO produzem o efeito de interromper o prazo para a interposição de outros recursos."},
+      {"id": 10, "title": "Questão 122 — IDECAN (2025)", "source": "Prefeitura de Patos - Procurador Municipal - 2025", "text": "Em se tratando das disposições do Código de Processo Civil de 2015, assinale a alternativa que indique corretamente o prazo para interposição do Agravo Interno contra decisão do relator proferida em tribunal (art. 1.021).", "options": ["A) 05 (cinco) dias.", "B) 10 (dez) dias.", "C) 15 (quinze) dias.", "D) 30 (trinta) dias."], "correct": 2, "exp": "Gabarito: C. Conforme o art. 1.003, § 5º c/c art. 1.021, caput, do CPC/15, o prazo para interposição de Agravo Interno é de 15 (quinze) dias úteis."},
+      {"id": 11, "title": "Questão 123 — FUNDATEC (2025)", "source": "Prefeitura de Imbé - Advogado - 2025", "text": "O Procurador do Município interpôs recurso de agravo de instrumento frente à decisão de primeiro grau que deferiu tutela antecipada e excluiu um dos réus. O Tribunal de Justiça deu provimento ao recurso para revogar a liminar, mas deixou de se manifestar sobre a exclusão do réu (configurando omissão no acórdão). Nessa hipótese, o Procurador Municipal deverá interpor:", "options": ["A) Agravo regimental, no prazo de 5 dias úteis.", "B) Embargos de declaração, no prazo de 5 dias úteis.", "C) Embargos de declaração, no prazo de 10 dias úteis.", "D) Agravo interno, no prazo de 15 dias úteis."], "correct": 1, "exp": "Gabarito: B. Cabem Embargos de Declaração no prazo de 5 (cinco) dias úteis contra qualquer decisão judicial para suprir omissão de ponto ou questão sobre o qual devia se pronunciar o juiz ou tribunal (art. 1.022, II e art. 1.023 do CPC)."},
+      {"id": 12, "title": "Questão 124 — VUNESP (2025)", "source": "Prefeitura de Paulínia - Procurador do Município - 2025", "text": "Acerca do preparo e do porte de remessa e de retorno dos recursos, assinale a alternativa correta de acordo com o disposto no Código de Processo Civil.", "options": ["A) São dispensados de preparo os recursos interpostos pelo Ministério Público, pela União, Estados, Municípios e suas autarquias, bem como por beneficiários da gratuidade da justiça.", "B) A insuficiência no valor do preparo implicará deserção imediata, sem qualquer oportunidade de complementação pelo recorrente.", "C) É obrigatório o recolhimento do porte de remessa e de retorno inclusive nos processos em autos eletrônicos.", "D) O equívoco formal no preenchimento da guia de custas gerará automaticamente a pena de deserção insanável."], "correct": 0, "exp": "Gabarito: A. O art. 1.007, § 1º do CPC estabelece que são dispensados de preparo os recursos interpostos pelo Ministério Público, pela União, DF, Estados, Municípios e respectivas autarquias/fundações, e pelos beneficiários da gratuidade da justiça."},
+      {"id": 13, "title": "Questão 127 — FGV (2025)", "source": "TCE PE - Auditor de Controle Externo - 2025", "text": "Tatiana, Rodrigo e Soraia debatiam a respeito da coisa julgada. Tatiana aduziu que a coisa julgada material consiste na autoridade que torna imutável e indiscutível a decisão de mérito não mais sujeita a recurso. Rodrigo afirmou que os motivos, ainda que importantes para determinar o alcance da parte dispositiva da sentença, não fazem coisa julgada. Soraia indicou que a sentença faz coisa julgada às partes e prejudica terceiros. Sobre os posicionamentos, é correto afirmar que:", "options": ["A) Todos estão corretos em suas afirmações.", "B) Somente Tatiana e Rodrigo estão corretos em suas afirmações.", "C) Somente Tatiana e Soraia estão corretas em suas afirmações.", "D) Somente Rodrigo está correto em sua afirmação."], "correct": 1, "exp": "Gabarito: B. Tatiana está correta (art. 502 do CPC). Rodrigo está correto (art. 504, I do CPC). Soraia está incorreta porque a sentença faz coisa julgada às partes entre as quais é dada, NÃO PREJUDICANDO terceiros (art. 506 do CPC)."},
+      {"id": 14, "title": "Questão 128 — FGV (2025)", "source": "PGM RJ - Analista de Procuradoria - 2025", "text": "Em ação de obrigação de fazer, ao proferir a respectiva sentença, o juiz confirmou tutela de urgência antecipatória e condenou a empresa ré a fornecer medicamento em 5 dias sob pena de multa. A empresa interpôs apelação sem requerer efeito suspensivo. O autor requereu a execução provisória da sentença. Nesse contexto, a execução provisória:", "options": ["A) É vedada em obrigações de fazer.", "B) Não é possível, pois a apelação possui efeito suspensivo automático absoluto em todos os casos.", "C) É possível, pois a apelação interposta contra sentença que confirma ou concede tutela provisória não possui efeito suspensivo automático (art. 1.012, § 1º, V do CPC).", "D) Deve obrigatoriamente aguardar o trânsito em julgado do recurso de apelação."], "correct": 2, "exp": "Gabarito: C. Conforme o art. 1.012, § 1º, V do CPC, produz efeitos imediatamente após a sua publicação a sentença que confirma, concede ou revoga tutela provisória, permitindo o início da execução provisória."},
+      {"id": 15, "title": "Questão 129 — FGV (2025)", "source": "OAB - Advogado 45º Exame de Ordem Unificado - 2025", "text": "José ajuizou ação de indenização contra Ana. Na petição inicial, José formulou requerimento de tutela provisória de urgência para o bloqueio de bens de Ana. O magistrado concedeu a tutela provisória de urgência. Nessa situação hipotética, assinale a opção que indica o recurso a ser interposto por Ana.", "options": ["A) Agravo de instrumento, uma vez que a decisão que defere a tutela provisória de urgência é decisão interlocutória impugnável por tal recurso (art. 1.015, I).", "B) Não cabe recurso imediato contra a decisão que defere a tutela provisória de urgência.", "C) Apelação, tendo em vista que a decisão que defere a tutela provisória de urgência tem natureza de sentença.", "D) Agravo interno dirigido ao juiz de primeiro grau."], "correct": 0, "exp": "Gabarito: A. A decisão que aprecia tutela provisória no curso do processo possui natureza jurídica de decisão interlocutória e é atacável por Agravo de Instrumento, conforme art. 1.015, I, do CPC."},
+      {"id": 16, "title": "Questão 130 — IBAM (2025)", "source": "Prefeitura de Franca - Procurador - 2025", "text": "A renúncia ao direito de recorrer (art. 999 do CPC):", "options": ["A) Depende exclusivamente da concordância do juiz.", "B) Independe da aceitação da outra parte.", "C) Depende da aceitação expressa da outra parte.", "D) Exige homologação do tribunal de justiça."], "correct": 1, "exp": "Gabarito: B. Nos termos do art. 999 do CPC, 'a renúncia ao direito de recorrer independe da aceitação da outra parte' (trata-se de ato unilateral do recorrente/sucumbente)."},
+      {"id": 17, "title": "Questão 132 — VUNESP (2025)", "source": "Prefeitura de Paulínia - Analista de Procuradoria - 2025", "text": "Cláudia ajuíza ação de alimentos em favor de João, pleiteando pensão. Na sentença, o juiz julga parcialmente procedente o pedido fixando alimentos definitivos. Diante da situação hipotética, considerando o disposto no Código de Processo Civil sobre a coisa julgada em relações jurídicas de trato continuado:", "options": ["A) A sentença não faz coisa julgada formal nem material por se tratar de alimentos.", "B) A sentença faz coisa julgada material, mas a questão pode ser novamente decidida se sobrevier modificação no estado de fato ou de direito das partes (art. 505, I do CPC).", "C) A sentença faz coisa julgada e a verdade dos fatos estabelecida na fundamentação torna-se imutável.", "D) A decisão não faz coisa julgada porque o pedido foi julgado apenas parcialmente procedente."], "correct": 1, "exp": "Gabarito: B. Conforme o art. 505, I, do CPC, nenhuma parte proporá de novo a lide já decidida, salvo se, tratando-se de relação jurídica de trato continuado, sobrevier modificação no estado de fato ou de direito (ex: ação revisional de alimentos)."},
+      {"id": 18, "title": "Questão 134 — FCC (2025)", "source": "PGE TO - Procurador - 2025", "text": "Acerca dos recursos no processo civil, é correto afirmar:", "options": ["A) O recurso adesivo será conhecido mesmo diante da desistência do recurso principal.", "B) A insuficiência no valor do preparo implicará deserção imediata sem prazo para complementação.", "C) O recurso pode ser interposto pelo terceiro prejudicado, que terá o ônus de demonstrar a possibilidade de a decisão sobre a relação jurídica submetida à apreciação judicial atingir direito de que se afirme titular (art. 996).", "D) A desistência do recurso depende da concordância expressa do recorrido."], "correct": 2, "exp": "Gabarito: C. Conforme o art. 996 do CPC, o recurso pode ser interposto pelo terceiro prejudicado, cabendo a este demonstrar a possibilidade de a decisão atingir direito seu."},
+      {"id": 19, "title": "Questão 202 — FGV (2025)", "source": "OAB - Advogado XLIV Exame de Ordem Unificado - 2025", "text": "Isabela interpôs recurso de apelação contra sentença de improcedência de embargos à execução. Ao receber a apelação, o Desembargador Relator julgou o recurso monocraticamente negando-lhe provimento. Assinale a opção que apresenta o recurso cabível a ser interposto por Isabela contra a decisão monocrática do relator.", "options": ["A) Recurso Especial dirigido diretamente ao STJ.", "B) Agravo Interno (art. 1.021 do CPC), por se tratar de decisão proferida pelo Desembargador Relator, a ser analisado pelo órgão colegiado da Câmara Cível.", "C) Agravo de Instrumento dirigido à câmara cível.", "D) Embargos Infringentes perante o tribunal de origem."], "correct": 1, "exp": "Gabarito: B. Contra decisão proferida pelo relator caberá Agravo Interno para o respectivo órgão colegiado, observadas as regras do regimento interno do tribunal (art. 1.021 do CPC)."},
+      {"id": 20, "title": "Questão 207 — Instituto Quadrix (2025)", "source": "CORE BA - Assistente Jurídico - 2025", "text": "No que diz respeito ao Código de Processo Civil, as decisões interlocutórias que versarem sobre o mérito do processo (julgamento antecipado parcial do mérito) serão recorríveis por:", "options": ["A) Apelação.", "B) Agravo de instrumento (art. 356, § 5º e art. 1.015, II).", "C) Embargos infringentes.", "D) Recurso inominado."], "correct": 1, "exp": "Gabarito: B. A decisão que julga parcialmente o mérito (art. 356 do CPC) possui natureza jurídica de decisão interlocutória de mérito e é impugnável mediante Agravo de Instrumento (art. 356, § 5º e art. 1.015, II do CPC)."},
+      {"id": 21, "title": "Questão 208 — Instituto AOCP (2025)", "source": "TJ PR - Técnico Judiciário - 2025", "text": "Um servidor do TJPR que atua na análise de recursos no âmbito cível deve ter conhecimento de que:", "options": ["A) A desistência do recurso depende obrigatoriamente da concordância do recorrido.", "B) Todos os recursos no CPC impedem automaticamente a eficácia da decisão recorrida.", "C) Não será conhecido o recurso adesivo se houver desistência do recurso principal ou se for ele considerado inadmissível (art. 997, § 2º, III).", "D) O recurso adesivo é cabível em qualquer recurso do processo civil, inclusive no Agravo Interno e Embargos de Declaração."], "correct": 2, "exp": "Gabarito: C. Nos termos do art. 997, § 2º, III, do CPC, o recurso adesivo subordina-se ao recurso independente, não sendo conhecido se houver desistência deste ou se ele for declarado inadmissível."},
+      {"id": 22, "title": "Questão 209 — FGV (2025)", "source": "ENAC - Titular de Serviços Notariais - 2025", "text": "Juliana ajuizou ação de cobrança contra Thiago. Em contestação, como questão prejudicial, Thiago alegou que o contrato fora assinado mediante coação. O juiz proferiu sentença rejeitando expressamente a prejudicial levantada por Thiago e julgando procedente o pedido principal. Nesse caso, quanto à coisa julgada na questão prejudicial (art. 503, § 1º do CPC):", "options": ["A) Não faz coisa julgada em hipótese alguma, pois motivos não fazem coisa julgada.", "B) Faz coisa julgada material se preenchidos cumulativamente os requisitos do art. 503, § 1º (dependência, contraditório efetivo sem revelia, competência e cognição ampla).", "C) Exige propositura de ação declaratória incidental para fazer coisa julgada.", "D) Produz apenas coisa julgada formal no processo."], "correct": 1, "exp": "Gabarito: B. Conforme o art. 503, § 1º do CPC, a resolução da questão prejudicial incidental fará coisa julgada material se preenchidos os requisitos legais (dependência, contraditório prévio sem revelia, competência e cognição plena)."},
+      {"id": 23, "title": "Questão 210 — Cebraspe (2025)", "source": "TJ RJ - Juiz Substituto - 2025", "text": "Em relação à apelação e suas especificidades no CPC/15, assinale a opção correta:", "options": ["A) A apelação interposta contra sentença que julga improcedentes os embargos do executado possui efeito suspensivo automático.", "B) O juiz de primeiro grau deve realizar o juízo de admissibilidade da apelação antes de remeter os autos ao tribunal.", "C) As decisões interlocutórias não sujeitas a agravo de instrumento imediato devem ser suscitadas em preliminar de apelação ou nas contrarrazões, sob pena de preclusão apenas ao final.", "D) O prazo para interposição de apelação é de 10 dias úteis."], "correct": 2, "exp": "Gabarito: C. Conforme o art. 1.009, § 1º do CPC, as decisões interlocutórias não sujeitas a Agravo de Instrumento imediato não precluem de plano e devem ser suscitadas em preliminar de apelação ou nas contrarrazões."},
+      {"id": 24, "title": "Questão 211 — VUNESP (2025)", "source": "TJM SP - Juiz de Direito Substituto - 2025", "text": "Sobre o julgamento antecipado parcial do mérito (art. 356 do CPC), é correto afirmar que:", "options": ["A) Trata-se de sentença terminativa atacável por apelação.", "B) É decisão interlocutória de mérito que permite o cumprimento definitivo de sentença imediato.", "C) Impede a execução provisória da parcela julgada na pendência de recurso.", "D) Não admite a concessão de tutela provisória prévia."], "correct": 1, "exp": "Gabarito: B. O art. 356 do CPC autoriza o julgamento antecipado parcial do mérito por decisão interlocutória, permitindo a liquidação e o cumprimento definitivo de sentença imediato."},
+      {"id": 25, "title": "Questão 212 — FGV (2025)", "source": "OAB - 43º Exame de Ordem Unificado - 2025", "text": "Contra acórdão não unânime proferido em recurso de apelação que reformou sentença de mérito, a técnica de julgamento a ser adotada pelo Tribunal (art. 942 do CPC) consiste em:", "options": ["A) Interposição obrigatória de embargos infringentes no prazo de 15 dias.", "B) Prosseguimento imediato do julgamento em sessão com a convocação de outros julgadores em número suficiente para garantir a possibilidade de inversão do resultado.", "C) Remessa imediata dos autos ao Superior Tribunal de Justiça.", "D) Extinção do processo sem resolução de mérito por divergência."], "correct": 1, "exp": "Gabarito: B. O art. 942 do CPC substituiu os embargos infringentes pela técnica de julgamento estendido de ofício quando a apelação for provida por maioria não unânime (2x1) para reformar sentença de mérito."}
+    ];
+
+    // ESTATÍSTICAS E ESTADO DOS QUIZZES;
+
+const quizStats = {
+      simulado: { answered: 0, correct: 0, wrong: 0, total: 40, userAnswers: {} },
+      oab: { answered: 0, correct: 0, wrong: 0, total: 25, userAnswers: {} }
+    };
+
+    // FUNÇÃO DE RENDERIZAÇÃO DOS CARDS DE QUESTÕES
+    function renderQuiz(containerId, questions, prefix) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+      container.innerHTML = '';
+
+      questions.forEach((q, qIndex) => {
+        const card = document.createElement('div');
+        card.className = 'question-card';
+        card.id = `${prefix}-q-${qIndex}`;
+
+        let optionsHTML = q.options.map((opt, oIndex) => `
+          <button class="option-btn" onclick="checkAnswer('${prefix}', ${qIndex}, ${oIndex}, ${q.correct})">
+            <span class="option-letter">${['A','B','C','D'][oIndex]})</span>
+            <span>${opt.replace(/^[A-D]\)\s*/, '')}</span>
+          </button>
+        `).join('');
+
+        card.innerHTML = `
+          <div class="question-header">
+            <span class="question-number">Questão ${qIndex + 1} de ${questions.length}</span>
+            <span class="question-source">${q.source || q.title || 'Simulado NP1'}</span>
+          </div>
+          <div class="question-title">${q.title || ''}</div>
+          <div class="question-text">${q.text || q.q}</div>
+          <div class="options-grid">${optionsHTML}</div>
+          <div class="explanation-box" id="${prefix}-exp-${qIndex}">
+            <strong>💡 Gabarito Comentado:</strong><br>${q.exp}
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    // FUNÇÃO DE VERIFICAÇÃO DE RESPOSTAS E ATUALIZAÇÃO
+    function checkAnswer(prefix, qIndex, selectedIndex, correctIndex) {
+      const stats = quizStats[prefix];
+      if (stats.userAnswers[qIndex] !== undefined) return; // Já respondida
+
+      stats.userAnswers[qIndex] = selectedIndex;
+      stats.answered++;
+
+      const card = document.getElementById(`${prefix}-q-${qIndex}`);
+      const buttons = card.querySelectorAll('.option-btn');
+      const expBox = document.getElementById(`${prefix}-exp-${qIndex}`);
+
+      buttons.forEach((btn, idx) => {
+        btn.disabled = true;
+        if (idx === correctIndex) {
+          btn.classList.add('correct');
+        } else if (idx === selectedIndex) {
+          btn.classList.add('wrong');
+        }
+      });
+
+      if (selectedIndex === correctIndex) {
+        stats.correct++;
+      } else {
+        stats.wrong++;
+      }
+
+      if (expBox) expBox.classList.add('active');
+
+      updateStatsUI(prefix);
+    }
+
+    // ATUALIZAÇÃO DA BARRA DE ESTATÍSTICAS E PROGRESSO
+    function updateStatsUI(prefix) {
+      const stats = quizStats[prefix];
+      const total = stats.total;
+      const answered = stats.answered;
+      const correct = stats.correct;
+      const wrong = stats.wrong;
+      const percent = answered > 0 ? Math.round((correct / answered) * 100) : 0;
+
+      const elTotal = document.getElementById(`stat-total-${prefix}`);
+      const elCorrect = document.getElementById(`stat-correct-${prefix}`);
+      const elWrong = document.getElementById(`stat-wrong-${prefix}`);
+      const elPercent = document.getElementById(`stat-percent-${prefix}`);
+      const elBar = document.getElementById(`progress-fill-${prefix}`);
+
+      if (elTotal) elTotal.innerText = `${answered} / ${total}`;
+      if (elCorrect) elCorrect.innerText = correct;
+      if (elWrong) elWrong.innerText = wrong;
+      if (elPercent) elPercent.innerText = `${percent}%`;
+      if (elBar) elBar.style.width = `${(answered / total) * 100}%`;
+    }
+
+    // INICIALIZAÇÃO AO CARREGAR A PÁGINA
+    window.addEventListener('DOMContentLoaded', () => {
+      // Renderiza Simulado NP1
+      if (typeof simuladoData !== 'undefined') {
+        renderQuiz('simulado-container', simuladoData, 'simulado');
+        quizStats.simulado.total = simuladoData.length;
+        updateStatsUI('simulado');
+      }
+
+      // Renderiza Questões OAB
+      if (typeof oabData !== 'undefined' && oabData.length > 0) {
+        renderQuiz('oab-container', oabData, 'oab');
+        quizStats.oab.total = oabData.length;
+        updateStatsUI('oab');
+      }
+    });
+  
+</script>
+</body>
+</html>
