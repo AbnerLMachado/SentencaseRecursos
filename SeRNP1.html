@@ -1431,7 +1431,7 @@
       <div class="netflix-grid">
         <div class="media-card">
           <div class="media-thumb">
-            <div class="play-btn" onclick="openMedia('https://www.youtube.com/embed/51PhDnIH6Lg', 'Sentença Terminativa vs. Definitiva na Prova')">▶</div>
+            <div class="play-btn" onclick="openMedia('https://www.youtube.com/embed/MT6gQG0CovM', 'Sentença Terminativa vs. Definitiva na Prova')">▶</div>
           </div>
           <div class="media-body">
             <div class="media-title">1. Sentença Terminativa x Definitiva</div>
@@ -1445,7 +1445,7 @@
 
         <div class="media-card">
           <div class="media-thumb">
-            <div class="play-btn" onclick="openMedia('https://www.youtube.com/embed/pN6e9oUPMjs', 'Julgamento Antecipado: Cuidado com o Recurso')">▶</div>
+            <div class="play-btn" onclick="openMedia('https://www.youtube.com/embed/WbpEYvoNDFU', 'Julgamento Antecipado: Cuidado com o Recurso')">▶</div>
           </div>
           <div class="media-body">
             <div class="media-title">2. Julgamento Antecipado</div>
@@ -1459,7 +1459,7 @@
 
         <div class="media-card">
           <div class="media-thumb">
-            <div class="play-btn" onclick="openMedia('https://www.youtube.com/embed/MT6gQG0CovM', 'Os Limites da Coisa Julgada Material')">▶</div>
+            <div class="play-btn" onclick="openMedia('https://www.youtube.com/embed/RCoXSZPCOUY', 'Os Limites da Coisa Julgada Material')">▶</div>
           </div>
           <div class="media-body">
             <div class="media-title">3. Limites da Coisa Julgada</div>
@@ -1473,7 +1473,7 @@
 
         <div class="media-card">
           <div class="media-thumb">
-            <div class="play-btn" onclick="openMedia('https://www.youtube.com/embed/RCoXSZPCOUY', 'Filtros Recursais: Conhecer, Anular ou Reformar')">▶</div>
+            <div class="play-btn" onclick="openMedia('https://www.youtube.com/embed/pN6e9oUPMjs', 'Filtros Recursais: Conhecer, Anular ou Reformar')">▶</div>
           </div>
           <div class="media-body">
             <div class="media-title">4. Filtros Recursais & Erros</div>
@@ -1487,7 +1487,7 @@
 
         <div class="media-card">
           <div class="media-thumb">
-            <div class="play-btn" onclick="openMedia('https://www.youtube.com/embed/WbpEYvoNDFU', 'Apelação na Prática')">▶</div>
+            <div class="play-btn" onclick="openMedia('https://www.youtube.com/embed/51PhDnIH6Lg', 'Apelação na Prática')">▶</div>
           </div>
           <div class="media-body">
             <div class="media-title">5. Apelação na Prática</div>
@@ -1501,7 +1501,7 @@
 
         <div class="media-card">
           <div class="media-thumb">
-            <div class="play-btn" onclick="openMedia('https://www.youtube.com/embed/ovQUVY4WqCQ', 'A Jornada Processual Completa')">▶</div>
+            <div class="play-btn" onclick="openMedia('https://www.youtube.com/embed/RBaJeN-Rmq8', 'A Jornada Processual Completa')">▶</div>
           </div>
           <div class="media-body">
             <div class="media-title">6. A Jornada Processual</div>
@@ -1515,7 +1515,7 @@
 
         <div class="media-card">
           <div class="media-thumb" style="background: linear-gradient(135deg, #8b5cf6 0%, #312e81 100%);">
-            <div class="play-btn" onclick="openMedia('https://www.youtube.com/embed/RBaJeN-Rmq8', 'Audio Overview NP1 - Lógica dos Recursos')">🎙️</div>
+            <div class="play-btn" onclick="openMedia('https://www.youtube.com/embed/ovQUVY4WqCQ', 'Audio Overview NP1 - Lógica dos Recursos')">🎙️</div>
           </div>
           <div class="media-body">
             <div class="media-title">7. Audio Overview NP1</div>
@@ -1685,6 +1685,26 @@
   </footer>
 
   <script>
+
+
+    // PLAYER DOS VÍDEOS (StreamFlix)
+    window.openMedia = function(url, titulo) {
+      var modal = document.getElementById('mediaModal');
+      var frame = document.getElementById('modalIframe');
+      document.getElementById('modalTitle').textContent = titulo || 'Player de Mídia';
+      frame.src = url + (url.indexOf('?') === -1 ? '?' : '&') + 'autoplay=1&rel=0';
+      modal.classList.add('active');
+    };
+    window.closeMedia = function() {
+      var modal = document.getElementById('mediaModal');
+      document.getElementById('modalIframe').src = '';
+      modal.classList.remove('active');
+    };
+    (function() {
+      var modal = document.getElementById('mediaModal');
+      if (modal) modal.addEventListener('click', function(e) { if (e.target === modal) window.closeMedia(); });
+      document.addEventListener('keydown', function(e) { if (e.key === 'Escape') window.closeMedia(); });
+    })();
 
     // TROCA DE TABS (GLOBAL)
     window.switchTab = function(tabId, evt) {
